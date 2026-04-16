@@ -4,8 +4,8 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'; // Added Ani
 import {
     FaGlobe, FaLandmark, FaBuilding, FaArrowRight, FaHardHat,
     FaCity, FaTree, FaPencilRuler, FaCouch, FaHome,
-    FaChevronRight, FaPhoneAlt, FaMapMarkerAlt
-} from 'react-icons/fa'; // Ensure FaPhoneAlt and FaChevronRight are here
+    FaChevronRight, FaPhoneAlt, FaMapMarkerAlt, FaStar
+} from 'react-icons/fa'; // Ensure FaPhoneAlt, FaChevronRight, FaStar are here
 
 // Reusable Counter Animation Hook
 const Counter = ({ end, duration = 1, suffix = '', formatNumber = false }) => {
@@ -53,13 +53,13 @@ const Home = () => {
         },
         {
             id: "02",
-            image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop",
+            image: "/images/monexa ventures 3.jpg",
             title: "Future-Ready Global Infrastructure",
             subtitle: "INTERNATIONAL DEVELOPMENTS"
         },
         {
             id: "03",
-            image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop",
+            image: "/images/monexa ventures 4.jpg",
             title: "Architectural Excellence Worldwide",
             subtitle: "PREMIUM REAL ESTATE"
         }
@@ -114,7 +114,7 @@ const Home = () => {
 
                 <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backgroundColor: 'rgba(0, 0, 0, 0.45)', zIndex: 2 }} />
 
-                <div className="container" style={{ position: 'relative', zIndex: 10, padding: '0 5%' }}>
+                <div className="container hero-container" style={{ position: 'relative', zIndex: 10, padding: '120px 5% 40px 5%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <div style={{ maxWidth: '800px', color: 'white' }}>
                         <motion.span key={`sub-${currentSlide}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} style={{ color: '#C5A059', letterSpacing: '3px', fontSize: '0.8rem', display: 'block', marginBottom: '1rem' }}>
                             {slides[currentSlide].subtitle}
@@ -125,15 +125,15 @@ const Home = () => {
                         </motion.h1>
 
                         {/* SPACING FIX: Added margin here */}
-                        <div style={{ marginBottom: '6rem' }}>
-                            <Link to="/projects" className="btn" style={{ padding: '1.2rem 3rem', backgroundColor: '#C5A059', color: 'white', display: 'inline-flex', alignItems: 'center', gap: '15px', textDecoration: 'none', fontWeight: 500 }}>
+                        <div className="hero-projects-btn" style={{ marginBottom: '2rem' }}>
+                            <Link to="/projects" className="btn" style={{ padding: '1.2rem 3rem', backgroundColor: '#C5A059', color: 'white', display: 'inline-flex', alignItems: 'center', gap: '15px', textDecoration: 'none', fontWeight: 600 }}>
                                 VIEW PROJECTS <FaChevronRight size={12} />
                             </Link>
                         </div>
 
                         {/* FOOTER BAR WITH FaPhoneAlt FIX */}
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+                        <div className="hero-footer" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem' }}>
+                            <div className="hero-contact" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'nowrap' }}>
                                 <div style={{ width: '50px', height: '50px', borderRadius: '50%', border: '1px solid rgba(255,255,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <FaPhoneAlt size={18} />
                                 </div>
@@ -142,7 +142,7 @@ const Home = () => {
                                     <p style={{ fontSize: '1.2rem', fontWeight: 600 }}>6385303666</p>
                                 </div>
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+                            <div className="hero-slider-nav" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'nowrap' }}>
                                 {slides.map((s, idx) => (
                                     <span key={s.id} onClick={() => setCurrentSlide(idx)} style={{ cursor: 'pointer', opacity: currentSlide === idx ? 1 : 0.3, borderBottom: currentSlide === idx ? '2px solid white' : 'none', fontWeight: 600 }}>{s.id}</span>
                                 ))}
@@ -237,7 +237,7 @@ const Home = () => {
             {/* WHAT WE OFFER - BENTO GRID SECTION */}
             <section style={{ padding: '8rem 0', backgroundColor: 'var(--theme-bg)', color: 'black' }}>
                 <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 5%' }}>
-                    <div style={{ textAlign: 'center', marginBottom: '5rem' }}>                                                                                                                                                                                                                                                                                                                                                                             
+                    <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
                         <span style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '3px', border: '1px solid rgba(212, 175, 55, 0.4)', padding: '8px 20px', borderRadius: '50px', fontWeight: 500, display: 'inline-block', marginBottom: '1.5rem', color: 'var(--theme-accent)' }}>WHAT WE OFFER</span>
                         <h2 style={{ fontSize: '3.5rem', fontWeight: 600, lineHeight: '1.2', fontFamily: 'Outfit, sans-serif', color: 'black' }}>
                             Take a brief look at<br />some of the services<br />we offer
@@ -246,12 +246,12 @@ const Home = () => {
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
                         {[
-                            { name: 'Construction', img: 'images/construction.webp?q=80&w=800&auto=format&fit=crop' },
-                            { name: 'Real Estate', img: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=800&auto=format&fit=crop' },
-                            { name: 'Gated Community', img: 'https://i.pinimg.com/736x/31/79/8b/31798be1773c7c46c0036438b269c2d8.jpg?q=80&w=800&auto=format&fit=crop' },
-                            { name: 'Architecture', img: 'https://i.pinimg.com/736x/60/91/81/609181fa6ac81c6c39c161837e26d848.jpg?q=80&w=800&auto=format&fit=crop' },
-                            { name: 'Interiors', img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=800&auto=format&fit=crop' },
-                            { name: 'Builders', img: 'https://i.pinimg.com/1200x/d8/bd/df/d8bddff7ae3c6a5c6bbaf2340e70a26e.jpg?q=80&w=800&auto=format&fit=crop' }
+                            { name: 'Construction', img: '/images/construction.webp' },
+                            { name: 'Real Estate', img: '/images/monexa ventures 5.jpg' },
+                            { name: 'Gated Community', img: '/images/monexa ventures 7.jpg' },
+                            { name: 'Architecture', img: '/images/Architecture.webp' },
+                            { name: 'Interiors', img: '/images/interiors.webp' },
+                            { name: 'Builders', img: '/images/builders.webp' }
                         ].map((service, idx) => (
                             <motion.div
                                 key={idx}
@@ -263,7 +263,7 @@ const Home = () => {
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', zIndex: 2 }}>
                                     <h3 style={{ fontSize: '1.4rem', fontWeight: 700, color: 'black' }}>{service.name}</h3>
                                     <Link to="/services" state={{ selectedService: service.name }} style={{ width: '32px', height: '32px', backgroundColor: hoveredIndex === `srv-${idx}` ? 'var(--theme-accent)' : 'var(--theme-bg)', borderRadius: '50%', display: 'flex', justifyContent: 'center', alignItems: 'center', transition: 'background-color 0.3s ease' }}>
-                                        <FaArrowRight transform="rotate(-45deg)" size={12} color={hoveredIndex === `srv-${idx}` ? "var(--theme-text-inverse)" : "var(--theme-text-main)"} />
+                                        <FaArrowRight style={{ transform: 'rotate(-45deg)' }} size={12} color={hoveredIndex === `srv-${idx}` ? "var(--theme-text-inverse)" : "var(--theme-text-main)"} />
                                     </Link>
                                 </div>
                                 <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '65%' }}>
@@ -288,38 +288,39 @@ const Home = () => {
                     <div style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-                        gap: '1rem'
+                        gap: '1rem',
+                        alignItems: 'stretch'
                     }}>
                         {[
                             {
                                 code: "IN",
                                 country: "India",
                                 desc: "Headquarters with 50,000+ projects across 28 states",
-                                image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=800&auto=format&fit=crop"
+                                image: "/images/monexa ventures 7.jpg"
                             },
                             {
                                 code: "MY",
                                 country: "Malaysia",
                                 desc: "Premium developments in Kuala Lumpur & Penang",
-                                image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?q=80&w=800&auto=format&fit=crop"
+                                image: "/images/monexa ventures 8.jpg"
                             },
                             {
                                 code: "SG",
                                 country: "Singapore",
                                 desc: "Luxury condominiums and commercial spaces",
-                                image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?q=80&w=800&auto=format&fit=crop"
+                                image: "/images/monexa ventures 10.jpg"
                             },
                             {
                                 code: "AE",
                                 country: "Dubai",
                                 desc: "Iconic towers and waterfront properties",
-                                image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=800&auto=format&fit=crop"
+                                image: "/images/monexa ventures 11.jpg"
                             },
                             {
                                 code: "HK",
                                 country: "Hong Kong",
                                 desc: "High-rise residential and mixed-use developments",
-                                image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=800&auto=format&fit=crop"
+                                image: "/images/monexa ventures 12.jpg"
                             }
                         ].map((loc, idx) => (
                             <motion.div
@@ -332,7 +333,8 @@ const Home = () => {
                                 onMouseLeave={() => setHoveredIndex(null)}
                                 style={{
                                     position: 'relative',
-                                    height: '480px',
+                                    height: '100%',
+                                    minHeight: '480px',
                                     borderRadius: '6px',
                                     overflow: 'hidden',
                                     display: 'flex',
@@ -386,7 +388,7 @@ const Home = () => {
             </section>
 
             {/* SELECTED PROJ SECTION */}
-            <section style={{ display: 'flex', minHeight: '600px', backgroundColor: '' }}>
+            <section className="flex-col-mobile" style={{ display: 'flex', minHeight: '600px', backgroundColor: '' }}>
                 {/* Left Side */}
                 <div style={{ flex: 1, padding: '5rem 5% 5rem 8%', display: 'flex', flexDirection: 'column', justifyContent: 'center', color: 'var(--theme-text-main)' }}>
                     <div>
@@ -398,7 +400,7 @@ const Home = () => {
 
                 {/* Right Side */}
                 <div style={{ flex: 1, position: 'relative' }}>
-                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Vista at Councill Square" />
+                    <img src="/images/monexa ventures 13.jpg" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Vista at Councill Square" />
                 </div>
             </section>
             {/* FEATURED PROJECTS OVERVIEW */}
@@ -416,19 +418,19 @@ const Home = () => {
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
                         {[
-                            { name: 'Monexa Business Park', loc: 'Singapore', category: 'Commercial', img: 'https://i.pinimg.com/736x/93/7e/ff/937eff8810e9ce249fc2449e6a09dfbe.jpg?q=80&w=1070&auto=format&fit=crop' },
-                            { name: 'Sapphire Residency', loc: 'Trichy, India', category: 'Villa', img: 'https://i.pinimg.com/1200x/9c/95/d5/9c95d5f197b6a395f00db2275604a537.jpg?q=80&w=2071&auto=format&fit=crop' },
-                            { name: 'The Golden Enclave', loc: 'Dubai', category: 'Upcoming', img: 'https://i.pinimg.com/736x/13/dd/30/13dd3053436068f187a3671784e4017c.jpg?q=80&w=1073&auto=format&fit=crop' }
+                            { name: 'Monexa Business Park', loc: 'Singapore', category: 'Commercial', img: '/images/monexa ventures 14.jpg' },
+                            { name: 'Sapphire Residency', loc: 'Trichy, India', category: 'Villa', img: '/images/monexa ventures 15.jpg' },
+                            { name: 'The Golden Enclave', loc: 'Dubai', category: 'Upcoming', img: '/images/monexa ventures 16.jpg' }
                         ].map((proj, i) => (
-                            <Link to="/India" key={i} style={{ textDecoration: 'none' }}>
-                                <motion.div whileHover={{ y: -10 }} style={{ borderRadius: '12px', overflow: 'hidden', backgroundColor: 'var(--theme-card)', boxShadow: '0 10px 30px rgba(0,0,0,0.8)', border: '1px solid rgba(212, 175, 55, 0.1)' }}>
-                                    <div style={{ height: '280px', overflow: 'hidden' }}>
+                            <Link to="/India" key={i} style={{ textDecoration: 'none', display: 'block', height: '100%' }}>
+                                <motion.div whileHover={{ y: -10 }} style={{ borderRadius: '12px', overflow: 'hidden', backgroundColor: 'var(--theme-card)', boxShadow: '0 10px 30px rgba(0,0,0,0.08)', border: '1px solid rgba(212, 175, 55, 0.1)', height: '100%', display: 'flex', flexDirection: 'column' }}>
+                                    <div style={{ height: '280px', overflow: 'hidden', flexShrink: 0 }}>
                                         <img src={proj.img} alt={proj.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                     </div>
-                                    <div style={{ padding: '2rem' }}>
+                                    <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                                         <span style={{ color: 'var(--theme-accent)', fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px' }}>{proj.category}</span>
-                                        <h3 style={{ fontSize: '1.4rem', color: 'var(--theme-primary)', margin: '0.5rem 0 1rem 0', fontFamily: 'Outfit, sans-serif', fontWeight: 600 }}>{proj.name}</h3>
-                                        <div style={{ display: 'flex', alignItems: 'center', color: '#888', fontSize: '0.9rem', gap: '8px' }}><FaMapMarkerAlt /> {proj.loc}</div>
+                                        <h3 style={{ fontSize: '1.4rem', color: 'var(--theme-text-main)', margin: '0.5rem 0 1rem 0', fontFamily: 'Outfit, sans-serif', fontWeight: 600 }}>{proj.name}</h3>
+                                        <div style={{ display: 'flex', alignItems: 'center', color: '#888', fontSize: '0.9rem', gap: '8px', marginTop: 'auto' }}><FaMapMarkerAlt /> {proj.loc}</div>
                                     </div>
                                 </motion.div>
                             </Link>
@@ -476,7 +478,7 @@ const Home = () => {
                             <motion.div key={i} whileHover={{ y: -10 }} style={{ backgroundColor: 'var(--theme-card)', padding: '3rem', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.1)', position: 'relative', boxShadow: '0 10px 30px rgba(0,0,0,0.8)' }}>
                                 <div style={{ color: 'var(--theme-accent)', fontSize: '5rem', position: 'absolute', top: '-10px', right: '30px', opacity: 0.1, fontFamily: 'serif', lineHeight: 1 }}>"</div>
                                 <div style={{ display: 'flex', gap: '4px', color: 'var(--theme-accent)', marginBottom: '1.5rem' }}>
-                                    <span style={{ fontSize: '1.2rem', letterSpacing: '4px' }}>â˜…â˜…â˜…â˜…â˜…</span>
+                                    <FaStar /><FaStar /><FaStar /><FaStar /><FaStar />
                                 </div>
                                 <p style={{ fontSize: '1.05rem', color: 'var(--theme-text-muted)', lineHeight: 1.8, marginBottom: '2rem', fontStyle: 'italic' }}>"{test.text}"</p>
                                 <div>

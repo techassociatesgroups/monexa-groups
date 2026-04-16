@@ -69,10 +69,10 @@ const AboutUs = () => {
             {/* PREVIOUS CONTENT: OPERATIONAL MANDATE */}
             <section style={{ padding: '8rem 0', backgroundColor: 'var(--theme-bg)' }}>
                 <div className="container">
-                    <div style={{ display: 'flex', gap: '5rem', alignItems: 'center' }}>
+                    <div className="flex-col-mobile" style={{ display: 'flex', gap: '5rem', alignItems: 'center' }}>
                         <div style={{ flex: 1 }}>
                             <img
-                                src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2070&auto=format&fit=crop"
+                                src="/images/monexa ventures 2.jpg"
                                 alt="Modern Architecture"
                                 style={{ width: '100%', height: '500px', objectFit: 'cover', borderRadius: '4px' }}
                             />
@@ -101,7 +101,7 @@ const AboutUs = () => {
             <section style={{ padding: '6rem 2rem' }}>
                 <div className="container">
                     <div className="grid-2" style={{ gap: '4rem' }}>
-                        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} style={{ display: 'flex', gap: '2rem' }}>
+                        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex-col-mobile" style={{ display: 'flex', gap: '2rem' }}>
                             <div style={{ color: 'var(--theme-primary)', fontSize: '2.5rem', display: 'flex', alignItems: 'center' }}>
                                 <FaBullseye />
                             </div>
@@ -112,7 +112,7 @@ const AboutUs = () => {
                                 </p>
                             </div>
                         </motion.div>
-                        <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} style={{ display: 'flex', gap: '2rem' }}>
+                        <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="flex-col-mobile" style={{ display: 'flex', gap: '2rem' }}>
                             <div style={{ color: 'var(--theme-primary)', fontSize: '2.5rem', marginTop: '5px' }}>
                                 <FaRegEye />
                             </div>
@@ -138,7 +138,7 @@ const AboutUs = () => {
                         <p style={{ color: 'var(--theme-text-muted)', fontSize: '1.1rem' }}>Present in 5 countries with localized expertise and global standards.</p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', gap: '2rem' }}>
                         {[
                             { id: 'IN', country: 'India', projects: '50,000+ Projects', desc: 'Our home base with the largest portfolio spanning 28 states.', cities: 'Key Cities: Mumbai, Delhi, Bangalore, Chennai, Hyderabad & more' },
                             { id: 'MY', country: 'Malaysia', projects: '12,000+ Projects', desc: 'Premium mixed-use developments and eco-friendly townships.', cities: 'Key Cities: Kuala Lumpur, Penang, Johor Bahru' },
@@ -217,7 +217,7 @@ const AboutUs = () => {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))', gap: '2rem' }}>
                         {[
                             { initial: 'RK', name: 'Rajesh Kumar', role: 'Chairman & CEO' },
                             { initial: 'PS', name: 'Priya Sharma', role: 'Chief Operating Officer' },

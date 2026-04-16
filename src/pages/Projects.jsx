@@ -3,17 +3,17 @@ import { motion, AnimatePresence, useInView } from 'framer-motion';
 
 const Projects = () => {
     return (
-        <div className="page-transition" style={{ backgroundColor: 'var(--theme-card)', minHeight: '100vh', paddingBottom: '5rem' }}>
+        <div className="page-transition min-h-screen pb-20 bg-[var(--theme-card)]">
 
             {/* HERO / HEADER SECTION */}
-            <div style={{ backgroundColor: 'var(--theme-primary)', padding: '10rem 2rem 6rem 2rem', color: 'white', textAlign: 'center' }}>
-                <h1 style={{ fontSize: '3.5rem', fontWeight: 600, color: 'white', fontFamily: 'Outfit, sans-serif', marginBottom: '1.5rem' }}>Infrastructure & Real Estate Vault</h1>
-                <p style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.8 }}>
+            <div className="pt-40 px-8 pb-24 text-center text-white bg-[var(--theme-primary)]">
+                <h1 className="text-5xl font-semibold text-white font-['Outfit'] mb-6">Infrastructure & Real Estate Vault</h1>
+                <p className="max-w-3xl mx-auto text-lg text-white/80 leading-relaxed">
                     A comprehensive repository of our high-scale developments and strategic structural assets worldwide.
                 </p>
             </div>
 
-            <div className="container" style={{ marginTop: '5rem' }}>
+            <div className="container mx-auto px-4 mt-20">
                 <ProjectShowcase />
             </div>
         </div>
@@ -64,42 +64,42 @@ const ProjectShowcase = () => {
 
     const dummyProjects = [
         // India
-        { id: 1, name: "Skyline Residency", location: "Mumbai, India", country: "India", type: "Apartments", img: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&auto=format&fit=crop" },
-        { id: 2, name: "Ganga View", location: "Varanasi, India", country: "India", type: "Flats", img: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=800&auto=format&fit=crop" },
-        { id: 3, name: "Green Park Plots", location: "Pune, India", country: "India", type: "Plots", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&auto=format&fit=crop" },
-        { id: 4, name: "Cyber Hub Flats", location: "Gurgaon, India", country: "India", type: "Flats", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop" },
-        { id: 5, name: "Heritage Apartments", location: "Chennai, India", country: "India", type: "Apartments", img: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=800&auto=format&fit=crop" },
-        { id: 16, name: "Lotus Flats", location: "Delhi, India", country: "India", type: "Flats", img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop" },
-        { id: 17, name: "Emerald Plots", location: "Bangalore, India", country: "India", type: "Plots", img: "https://images.unsplash.com/photo-1524813686514-a57563d77965?w=800&auto=format&fit=crop" },
-        { id: 18, name: "Imperial Apartments", location: "Hyderabad, India", country: "India", type: "Apartments", img: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop" },
-        { id: 19, name: "Royal Flats", location: "Jaipur, India", country: "India", type: "Flats", img: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&auto=format&fit=crop" },
-        { id: 20, name: "Zion Apartments", location: "Kochi, India", country: "India", type: "Apartments", img: "https://images.unsplash.com/photo-1515263487990-61b07816b324?w=800&auto=format&fit=crop" },
+        { id: 1, name: "Skyline Residency", location: "Mumbai, India", country: "India", type: "Apartments", img: "/images/monexa ventures 17.jpg" },
+        { id: 2, name: "Ganga View", location: "Varanasi, India", country: "India", type: "Flats", img: "/images/monexa ventures 18.jpg" },
+        { id: 3, name: "Green Park Plots", location: "Pune, India", country: "India", type: "Plots", img: "/images/monexa ventures 1.jpg" },
+        { id: 4, name: "Cyber Hub Flats", location: "Gurgaon, India", country: "India", type: "Flats", img: "/images/monexa ventures 2.jpg" },
+        { id: 5, name: "Heritage Apartments", location: "Chennai, India", country: "India", type: "Apartments", img: "/images/monexa ventures 3.jpg" },
+        { id: 16, name: "Lotus Flats", location: "Delhi, India", country: "India", type: "Flats", img: "/images/monexa ventures 4.jpg" },
+        { id: 17, name: "Emerald Plots", location: "Bangalore, India", country: "India", type: "Plots", img: "/images/monexa ventures 5.jpg" },
+        { id: 18, name: "Imperial Apartments", location: "Hyderabad, India", country: "India", type: "Apartments", img: "/images/monexa ventures 6.jpg" },
+        { id: 19, name: "Royal Flats", location: "Jaipur, India", country: "India", type: "Flats", img: "/images/monexa ventures 7.jpg" },
+        { id: 20, name: "Zion Apartments", location: "Kochi, India", country: "India", type: "Apartments", img: "/images/monexa ventures 8.jpg" },
 
         // Dubai
-        { id: 6, name: "Desert Rose", location: "Downtown Dubai", country: "Dubai", type: "Apartments", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&auto=format&fit=crop" },
-        { id: 7, name: "Palm View Flats", location: "Palm Jumeirah", country: "Dubai", type: "Flats", img: "https://images.unsplash.com/photo-1541339907198-e087562f62b0?w=800&auto=format&fit=crop" },
-        { id: 8, name: "Marina Heights", location: "Dubai Marina", country: "Dubai", type: "Apartments", img: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&auto=format&fit=crop" },
-        { id: 9, name: "Sands Plots", location: "Al Barsha", country: "Dubai", type: "Plots", img: "https://images.unsplash.com/photo-1506466010722-395aa2bef877?w=800&auto=format&fit=crop" },
-        { id: 21, name: "Burj Vista", location: "Downtown Dubai", country: "Dubai", type: "Apartments", img: "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800&auto=format&fit=crop" },
-        { id: 22, name: "Pearl Flats", location: "Jumeirah", country: "Dubai", type: "Flats", img: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&auto=format&fit=crop" },
-        { id: 23, name: "Oasis Plots", location: "Dubai Hills", country: "Dubai", type: "Plots", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&auto=format&fit=crop" },
-        { id: 24, name: "Sky Garden", location: "Business Bay", country: "Dubai", type: "Apartments", img: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&auto=format&fit=crop" },
+        { id: 6, name: "Desert Rose", location: "Downtown Dubai", country: "Dubai", type: "Apartments", img: "/images/monexa ventures 10.jpg" },
+        { id: 7, name: "Palm View Flats", location: "Palm Jumeirah", country: "Dubai", type: "Flats", img: "/images/monexa ventures 11.jpg" },
+        { id: 8, name: "Marina Heights", location: "Dubai Marina", country: "Dubai", type: "Apartments", img: "/images/monexa ventures 12.jpg" },
+        { id: 9, name: "Sands Plots", location: "Al Barsha", country: "Dubai", type: "Plots", img: "/images/monexa ventures 13.jpg" },
+        { id: 21, name: "Burj Vista", location: "Downtown Dubai", country: "Dubai", type: "Apartments", img: "/images/monexa ventures 14.jpg" },
+        { id: 22, name: "Pearl Flats", location: "Jumeirah", country: "Dubai", type: "Flats", img: "/images/monexa ventures 15.jpg" },
+        { id: 23, name: "Oasis Plots", location: "Dubai Hills", country: "Dubai", type: "Plots", img: "/images/monexa ventures 16.jpg" },
+        { id: 24, name: "Sky Garden", location: "Business Bay", country: "Dubai", type: "Apartments", img: "/images/monexa ventures 17.jpg" },
 
         // Malaysia
-        { id: 10, name: "KL Towers", location: "Kuala Lumpur", country: "Malaysia", type: "Apartments", img: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800&auto=format&fit=crop" },
-        { id: 11, name: "Penang Pearl", location: "Penang", country: "Malaysia", type: "Flats", img: "https://images.unsplash.com/photo-1610444654605-649033320ef4?w=800&auto=format&fit=crop" },
-        { id: 12, name: "Langkawi Plots", location: "Langkawi", country: "Malaysia", type: "Plots", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop" },
-        { id: 25, name: "Petronas Suites", location: "Kuala Lumpur", country: "Malaysia", type: "Apartments", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&auto=format&fit=crop" },
-        { id: 26, name: "Batu Flats", location: "Batu Caves", country: "Malaysia", type: "Flats", img: "https://images.unsplash.com/photo-1560184897-67f4a3f9a7fa?w=800&auto=format&fit=crop" },
-        { id: 27, name: "Genting Plots", location: "Genting Highlands", country: "Malaysia", type: "Plots", img: "https://images.unsplash.com/photo-1506466010722-395aa2bef877?w=800&auto=format&fit=crop" },
+        { id: 10, name: "KL Towers", location: "Kuala Lumpur", country: "Malaysia", type: "Apartments", img: "/images/monexa ventures 18.jpg" },
+        { id: 11, name: "Penang Pearl", location: "Penang", country: "Malaysia", type: "Flats", img: "/images/monexa ventures 1.jpg" },
+        { id: 12, name: "Langkawi Plots", location: "Langkawi", country: "Malaysia", type: "Plots", img: "/images/monexa ventures 2.jpg" },
+        { id: 25, name: "Petronas Suites", location: "Kuala Lumpur", country: "Malaysia", type: "Apartments", img: "/images/monexa ventures 3.jpg" },
+        { id: 26, name: "Batu Flats", location: "Batu Caves", country: "Malaysia", type: "Flats", img: "/images/monexa ventures 4.jpg" },
+        { id: 27, name: "Genting Plots", location: "Genting Highlands", country: "Malaysia", type: "Plots", img: "/images/monexa ventures 5.jpg" },
 
         // Singapore
-        { id: 13, name: "Orchard Luxury", location: "Orchard Road", country: "Singapore", type: "Apartments", img: "https://images.unsplash.com/photo-1565967511849-76a60a516170?w=800&auto=format&fit=crop" },
-        { id: 14, name: "Changi Suites", location: "Changi", country: "Singapore", type: "Flats", img: "https://images.unsplash.com/photo-1525648199074-cee38ba79a4a?w=800&auto=format&fit=crop" },
-        { id: 15, name: "Garden Plots", location: "Jurong East", country: "Singapore", type: "Plots", img: "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&auto=format&fit=crop" },
-        { id: 28, name: "Marina Bay Suites", location: "Marina Bay", country: "Singapore", type: "Apartments", img: "https://images.unsplash.com/photo-1518005020480-1099289ec090?w=800&auto=format&fit=crop" },
-        { id: 29, name: "Sentosa Flats", location: "Sentosa Island", country: "Singapore", type: "Flats", img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&auto=format&fit=crop" },
-        { id: 30, name: "Jurong Plots", location: "Jurong", country: "Singapore", type: "Plots", img: "https://images.unsplash.com/photo-1524813686514-a57563d77965?w=800&auto=format&fit=crop" },
+        { id: 13, name: "Orchard Luxury", location: "Orchard Road", country: "Singapore", type: "Apartments", img: "/images/monexa ventures 6.jpg" },
+        { id: 14, name: "Changi Suites", location: "Changi", country: "Singapore", type: "Flats", img: "/images/monexa ventures 7.jpg" },
+        { id: 15, name: "Garden Plots", location: "Jurong East", country: "Singapore", type: "Plots", img: "/images/monexa ventures 8.jpg" },
+        { id: 28, name: "Marina Bay Suites", location: "Marina Bay", country: "Singapore", type: "Apartments", img: "/images/monexa ventures 10.jpg" },
+        { id: 29, name: "Sentosa Flats", location: "Sentosa Island", country: "Singapore", type: "Flats", img: "/images/monexa ventures 11.jpg" },
+        { id: 30, name: "Jurong Plots", location: "Jurong", country: "Singapore", type: "Plots", img: "/images/monexa ventures 12.jpg" },
     ];
 
     const filteredProjects = dummyProjects.filter(p =>
@@ -107,31 +107,14 @@ const ProjectShowcase = () => {
     );
 
     return (
-        <div>
+        <div className="w-full">
             {/* Country Tabs */}
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '1rem',
-                marginBottom: '3rem',
-                flexWrap: 'wrap'
-            }}>
+            <div className="flex justify-center gap-4 mb-12 flex-wrap">
                 {countries.map(c => (
                     <button
                         key={c}
                         onClick={() => setActiveCountry(c)}
-                        style={{
-                            padding: '0.8rem 2.5rem',
-                            borderRadius: '50px',
-                            border: '1px solid #ddd',
-                            backgroundColor: activeCountry === c ? 'var(--theme-primary)' : 'white',
-                            color: activeCountry === c ? 'white' : 'var(--theme-primary)',
-                            fontSize: '1rem',
-                            fontWeight: 500,
-                            cursor: 'pointer',
-                            transition: 'all 0.3s ease',
-                            boxShadow: activeCountry === c ? '0 5px 15px rgba(27, 7, 67, 0.2)' : 'none'
-                        }}
+                        className={`px-8 py-3 rounded-full border border-gray-200 text-base font-medium cursor-pointer transition-all duration-300 ${activeCountry === c ? 'bg-[var(--theme-primary)] text-white shadow-[0_5px_15px_rgba(27,7,67,0.2)]' : 'bg-white text-[var(--theme-primary)]'}`}
                     >
                         {c}
                     </button>
@@ -139,41 +122,18 @@ const ProjectShowcase = () => {
             </div>
 
             {/* Type Sub-categories */}
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '2.5rem',
-                marginBottom: '4rem',
-                borderBottom: '1px solid #eee',
-                paddingBottom: '1rem'
-            }}>
+            <div className="flex justify-center gap-6 md:gap-10 mb-16 border-b border-gray-100 pb-4 flex-wrap">
                 {types.map(t => (
                     <button
                         key={t}
                         onClick={() => setActiveType(t)}
-                        style={{
-                            background: 'none',
-                            border: 'none',
-                            fontSize: '0.95rem',
-                            fontWeight: activeType === t ? 700 : 400,
-                            color: activeType === t ? 'var(--theme-primary)' : 'var(--theme-text-muted)',
-                            cursor: 'pointer',
-                            position: 'relative',
-                            padding: '0 5px'
-                        }}
+                        className={`bg-transparent border-none text-base cursor-pointer relative px-2 transition-colors ${activeType === t ? 'font-bold text-[var(--theme-primary)]' : 'font-normal text-[var(--theme-text-muted)]'}`}
                     >
                         {t}
                         {activeType === t && (
                             <motion.div
                                 layoutId="activeTabProjects"
-                                style={{
-                                    position: 'absolute',
-                                    bottom: '-1.1rem',
-                                    left: 0,
-                                    right: 0,
-                                    height: '3px',
-                                    backgroundColor: 'var(--theme-accent)'
-                                }}
+                                className="absolute -bottom-[1.1rem] left-0 right-0 h-[3px] bg-[var(--theme-accent)]"
                             />
                         )}
                     </button>
@@ -181,11 +141,7 @@ const ProjectShowcase = () => {
             </div>
 
             {/* Project Grid */}
-            <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-                gap: '2rem'
-            }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {filteredProjects.length > 0 ? (
                     filteredProjects.map((proj) => (
                         <motion.div
@@ -195,36 +151,22 @@ const ProjectShowcase = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             exit={{ opacity: 0, scale: 0.9 }}
                             transition={{ duration: 0.3 }}
-                            className="card"
-                            style={{ cursor: 'pointer', overflow: 'hidden' }}
+                            className="card cursor-pointer overflow-hidden rounded-md relative group h-[280px]"
                         >
-                            <div style={{ position: 'relative', height: '280px' }}>
-                                <img src={proj.img} alt={proj.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                <div style={{
-                                    position: 'absolute',
-                                    bottom: 0, left: 0, width: '100%',
-                                    background: 'linear-gradient(to top, rgba(10,25,47,0.9), transparent)',
-                                    padding: '2.5rem 1.5rem 1rem 1.5rem'
-                                }}>
-                                    <h3 style={{ color: 'white', fontSize: '1.25rem', fontWeight: 500, marginBottom: '0.3rem' }}>{proj.name}</h3>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>{proj.location}</p>
-                                        <span style={{
-                                            fontSize: '0.75rem',
-                                            backgroundColor: 'rgba(255,255,255,0.15)',
-                                            color: 'white',
-                                            padding: '3px 10px',
-                                            borderRadius: '15px'
-                                        }}>
-                                            {proj.type}
-                                        </span>
-                                    </div>
+                            <img src={proj.img} alt={proj.name} className="w-full h-full object-cover" />
+                            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-[rgba(10,25,47,0.9)] to-transparent pt-10 pb-4 px-6">
+                                <h3 className="text-white text-xl font-medium mb-1">{proj.name}</h3>
+                                <div className="flex justify-between items-center">
+                                    <p className="text-white/70 text-sm">{proj.location}</p>
+                                    <span className="text-xs bg-white/15 text-white py-1 px-3 rounded-full">
+                                        {proj.type}
+                                    </span>
                                 </div>
                             </div>
                         </motion.div>
                     ))
                 ) : (
-                    <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: '5rem', color: 'var(--theme-text-muted)' }}>
+                    <div className="col-span-full text-center p-20 text-[var(--theme-text-muted)]">
                         No projects found in this category.
                     </div>
                 )}

@@ -12,76 +12,78 @@ const ContactUs = () => {
     ];
 
     return (
-        <div className="page-transition" style={{ backgroundColor: 'var(--theme-bg)', minHeight: '100vh', paddingBottom: '5rem' }}>
+        <div className="page-transition bg-[var(--theme-bg)] min-h-screen pb-20 w-full overflow-hidden flex flex-col items-center">
 
             {/* HERO */}
-            <div style={{ padding: '10rem 2rem 5.5rem 2rem', textAlign: 'center', backgroundColor: 'var(--theme-primary)', color: 'white', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
-                <h1 style={{ fontSize: '3.5rem', marginBottom: '1.5rem', fontWeight: 600, color: 'white', fontFamily: 'Outfit, sans-serif' }}>
+            <div className="pt-40 px-8 pb-24 text-center bg-[var(--theme-primary)] text-white border-b border-white/10 w-full relative">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl mb-6 font-semibold text-white font-['Outfit']">
                     Contact Support
                 </h1>
-                <p style={{ maxWidth: '700px', margin: '0 auto', fontSize: '1.2rem', color: 'rgba(255,255,255,0.8)', lineHeight: 1.8 }}>
+                <p className="max-w-3xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
                     Connect with our global operations team. We are positioned across key metropolitan hubs to ensure seamless communication and project execution.
                 </p>
             </div>
 
-            <section className="container" style={{ padding: '5rem 20px' }}>
-                <div className="grid-2" style={{ gap: '4rem', alignItems: 'flex-start' }}>
+            <section className="container mx-auto py-20 px-4 md:px-8 max-w-7xl w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start w-full">
 
                     {/* Contact Form */}
-                    <div className="glass-panel" style={{ padding: '3.5rem', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '4px' }}>
-                        <h2 style={{ marginBottom: '2.5rem', fontSize: '1.8rem', fontWeight: 400, color: 'var(--theme-primary)' }}>Direct Inquiry</h2>
-                        <form style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                            <div className="grid-2" style={{ gap: '1.5rem' }}>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, fontSize: '0.9rem', color: 'var(--theme-text-muted)' }}>First Name</label>
-                                    <input type="text" className="glass-input" style={{ width: '100%', padding: '1rem', border: '1px solid #e2e8f0', borderRadius: '4px', background: 'var(--theme-bg)' }} />
+                    <div className="glass-panel p-8 md:p-14 border border-black/5 rounded-md w-full max-w-[100vw] overflow-hidden">
+                        <h2 className="mb-10 text-3xl font-medium text-[var(--theme-primary)]">Direct Inquiry</h2>
+                        <form action="https://api.web3forms.com/submit" method="POST" className="flex flex-col gap-6 w-full">
+                            <input type="hidden" name="access_key" value={import.meta.env.VITE_WEB3FORMS_KEY || ''} />
+                            <input type="hidden" name="redirect" value={window.location.origin + "/thank-you"} />
+                            <input type="hidden" name="subject" value="New Monexa Website Inquiry" />
+                            <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                                <div className="w-full text-left">
+                                    <label className="block mb-2 font-medium text-sm text-[var(--theme-text-muted)]">First Name</label>
+                                    <input type="text" name="First Name" required className="w-full p-4 border border-slate-200 rounded-md bg-[var(--theme-bg)] focus:outline-none focus:ring-2 focus:ring-[var(--theme-accent)]" />
                                 </div>
-                                <div>
-                                    <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, fontSize: '0.9rem', color: 'var(--theme-text-muted)' }}>Last Name</label>
-                                    <input type="text" className="glass-input" style={{ width: '100%', padding: '1rem', border: '1px solid #e2e8f0', borderRadius: '4px', background: 'var(--theme-bg)' }} />
+                                <div className="w-full text-left">
+                                    <label className="block mb-2 font-medium text-sm text-[var(--theme-text-muted)]">Last Name</label>
+                                    <input type="text" name="Last Name" required className="w-full p-4 border border-slate-200 rounded-md bg-[var(--theme-bg)] focus:outline-none focus:ring-2 focus:ring-[var(--theme-accent)]" />
                                 </div>
                             </div>
 
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, fontSize: '0.9rem', color: 'var(--theme-text-muted)' }}>Email Address</label>
-                                <input type="email" className="glass-input" style={{ width: '100%', padding: '1rem', border: '1px solid #e2e8f0', borderRadius: '4px', background: 'var(--theme-bg)' }} />
+                            <div className="w-full text-left">
+                                <label className="block mb-2 font-medium text-sm text-[var(--theme-text-muted)]">Email Address</label>
+                                <input type="email" name="email" required className="w-full p-4 border border-slate-200 rounded-md bg-[var(--theme-bg)] focus:outline-none focus:ring-2 focus:ring-[var(--theme-accent)]" />
                             </div>
 
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, fontSize: '0.9rem', color: 'var(--theme-text-muted)' }}>Phone Number</label>
-                                <input type="tel" className="glass-input" style={{ width: '100%', padding: '1rem', border: '1px solid #e2e8f0', borderRadius: '4px', background: 'var(--theme-bg)' }} />
+                            <div className="w-full text-left">
+                                <label className="block mb-2 font-medium text-sm text-[var(--theme-text-muted)]">Phone Number</label>
+                                <input type="tel" name="Phone Number" required className="w-full p-4 border border-slate-200 rounded-md bg-[var(--theme-bg)] focus:outline-none focus:ring-2 focus:ring-[var(--theme-accent)]" />
                             </div>
 
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, fontSize: '0.9rem', color: 'var(--theme-text-muted)' }}>Area of Interest</label>
-                                <select className="glass-input" style={{ width: '100%', padding: '1rem', border: '1px solid #e2e8f0', borderRadius: '4px', background: 'var(--theme-bg)', color: 'var(--theme-text-main)' }}>
-                                    <option>Strategic Investment Consultation</option>
-                                    <option>Commercial Development Partnership</option>
-                                    <option>Institutional Capital Deployment</option>
-                                    <option>General Corporate Inquiry</option>
+                            <div className="w-full overflow-hidden text-left max-w-full">
+                                <label className="block mb-2 font-medium text-sm text-[var(--theme-text-muted)]">Area of Interest</label>
+                                <select name="Area of Interest" className="w-full p-4 border border-slate-200 rounded-md bg-[var(--theme-bg)] text-[var(--theme-text-main)] overflow-hidden text-ellipsis whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-[var(--theme-accent)]">
+                                    <option value="Strategic Investment Consultation">Strategic Investment Consultation</option>
+                                    <option value="Commercial Development Partnership">Commercial Development Partnership</option>
+                                    <option value="Institutional Capital Deployment">Institutional Capital Deployment</option>
+                                    <option value="General Corporate Inquiry">General Corporate Inquiry</option>
                                 </select>
                             </div>
 
-                            <div>
-                                <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 500, fontSize: '0.9rem', color: 'var(--theme-text-muted)' }}>Message</label>
-                                <textarea rows="5" className="glass-input" style={{ width: '100%', padding: '1rem', border: '1px solid #e2e8f0', borderRadius: '4px', background: 'var(--theme-bg)', resize: 'vertical' }}></textarea>
+                            <div className="w-full text-left max-w-full">
+                                <label className="block mb-2 font-medium text-sm text-[var(--theme-text-muted)]">Message</label>
+                                <textarea name="message" required rows="5" className="w-full p-4 border border-slate-200 rounded-md bg-[var(--theme-bg)] resize-y focus:outline-none focus:ring-2 focus:ring-[var(--theme-accent)]"></textarea>
                             </div>
 
-                            <button className="btn" type="button" style={{ padding: '1.2rem', marginTop: '1rem', width: '100%' }}>Submit Inquiry</button>
+                            <button className="btn btn-primary w-full p-5 mt-4" type="submit">Submit Inquiry</button>
                         </form>
                     </div>
 
                     {/* Contact Details & Map */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-
+                    <div className="flex flex-col gap-8 w-full overflow-hidden max-w-full">
                         {/* Map Placeholder */}
-                        <div style={{ width: '100%', height: '350px', backgroundColor: '#e2e8f0', borderRadius: '4px', overflow: 'hidden', position: 'relative', border: '1px solid rgba(0,0,0,0.05)' }}>
+                        <div className="w-full h-[350px] bg-slate-200 rounded-md overflow-hidden relative border border-black/5">
                             <iframe
                                 title="Google Maps"
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15676.840656094255!2d78.6834011!3d10.7951523!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3baa8e0ab8580001%3A0xeab5cd22ea67d1!2sK.K.Nagar%2C%20Tiruchirappalli%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1690000000000!5m2!1sen!2sin"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0, filter: 'grayscale(100%) opacity(0.8)' }}
+                                className="w-full h-full border-0 grayscale opacity-80"
                                 allowFullScreen=""
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade">
@@ -89,66 +91,65 @@ const ContactUs = () => {
                         </div>
 
                         {/* Office Details */}
-                        <div className="glass-panel" style={{ padding: '2.5rem', border: '1px solid rgba(0,0,0,0.05)', borderRadius: '4px' }}>
-                            <h3 style={{ marginBottom: '1.5rem', fontSize: '1.3rem', fontWeight: 500, color: 'var(--theme-primary)' }}>Global Footprint</h3>
+                        <div className="glass-panel p-8 md:p-10 border border-black/5 rounded-md w-full overflow-hidden max-w-full">
+                            <h3 className="mb-6 text-xl font-medium text-[var(--theme-primary)]">Global Footprint</h3>
 
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                            <div className="flex flex-col gap-8 w-full max-w-full">
                                 {/* HQ */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
-                                    <span style={{ fontSize: '1.5rem', color: 'var(--theme-accent)' }}>ðŸ“</span>
-                                    <div>
-                                        <p style={{ fontWeight: 600, color: 'var(--theme-text-main)', marginBottom: '0.3rem' }}>India (Global HQ)</p>
-                                        <p style={{ color: 'var(--theme-text-muted)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '0.5rem' }}>
+                                <div className="flex items-start gap-4 max-w-full break-words">
+                                    <span className="text-2xl text-[var(--theme-accent)] flex-shrink-0">📍</span>
+                                    <div className="text-left w-full overflow-hidden">
+                                        <p className="font-semibold text-[var(--theme-text-main)] mb-1">India (Global HQ)</p>
+                                        <p className="text-[var(--theme-text-muted)] text-base leading-relaxed mb-2 break-words">
                                             Monexa groups Pvt Ltd<br />Pl no 17, Uathamar St, Thentral Nagar<br />Trichy - 620021
                                         </p>
-                                        <a href="tel:6385303666" style={{ color: 'var(--theme-primary)', fontWeight: 500 }}>6385303666</a>
+                                        <a href="tel:6385303666" className="text-[var(--theme-primary)] font-medium block">6385303666</a>
                                     </div>
                                 </div>
 
-                                <div style={{ height: '1px', background: 'var(--glass-border)' }}></div>
+                                <div className="h-px bg-black/10 w-full"></div>
 
                                 {/* Regional: Malaysia */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
-                                    <span style={{ fontSize: '1.5rem', color: 'var(--theme-accent)' }}>ðŸ“</span>
-                                    <div>
-                                        <p style={{ fontWeight: 600, color: 'var(--theme-text-main)', marginBottom: '0.3rem' }}>Malaysia (Operations)</p>
-                                        <a href="tel:+60179944796" style={{ color: 'var(--theme-primary)', fontWeight: 500 }}>+60 17 994 4796</a>
+                                <div className="flex items-start gap-4 max-w-full break-words">
+                                    <span className="text-2xl text-[var(--theme-accent)] flex-shrink-0">📍</span>
+                                    <div className="text-left w-full overflow-hidden">
+                                        <p className="font-semibold text-[var(--theme-text-main)] mb-1">Malaysia (Operations)</p>
+                                        <a href="tel:+60179944796" className="text-[var(--theme-primary)] font-medium block break-words">+60 17 994 4796</a>
                                     </div>
                                 </div>
 
-                                <div style={{ height: '1px', background: 'var(--glass-border)' }}></div>
+                                <div className="h-px bg-black/10 w-full"></div>
 
                                 {/* Regional: Dubai */}
-                                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '15px' }}>
-                                    <span style={{ fontSize: '1.5rem', color: 'var(--theme-accent)' }}>ðŸ“</span>
-                                    <div>
-                                        <p style={{ fontWeight: 600, color: 'var(--theme-text-main)', marginBottom: '0.3rem' }}>Dubai, UAE (Capital Management)</p>
-                                        <a href="mailto:invest@monexagroups.com" style={{ color: 'var(--theme-primary)', fontWeight: 500 }}>invest@monexagroups.com</a>
+                                <div className="flex items-start gap-4 max-w-full break-words">
+                                    <span className="text-2xl text-[var(--theme-accent)] flex-shrink-0">📍</span>
+                                    <div className="text-left w-full overflow-hidden">
+                                        <p className="font-semibold text-[var(--theme-text-main)] mb-1">Dubai, UAE (Capital Management)</p>
+                                        <a href="mailto:invest@monexagroups.com" className="text-[var(--theme-primary)] font-medium block break-all">invest@monexagroups.com</a>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* FAQ Section */}
-            <section style={{ backgroundColor: 'var(--theme-primary)', color: 'var(--theme-card)', padding: '6rem 20px', marginTop: '2rem' }}>
-                <div className="container" style={{ maxWidth: '800px' }}>
-                    <h2 style={{ textAlign: 'center', marginBottom: '4rem', fontSize: '2.5rem', fontWeight: 400 }}>Frequently Asked Questions</h2>
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <section className="bg-[var(--theme-primary)] text-[var(--theme-card)] py-24 px-4 w-full mt-8 flex flex-col items-center overflow-hidden">
+                <div className="container mx-auto max-w-4xl w-full">
+                    <h2 className="text-center mb-16 text-4xl font-normal text-white">Frequently Asked Questions</h2>
+                    <div className="flex flex-col gap-4 w-full max-w-[100vw]">
                         {faqs.map((faq, idx) => (
-                            <div key={idx} style={{ backgroundColor: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', overflow: 'hidden' }}>
+                            <div key={idx} className="bg-white/5 border border-white/10 rounded-md overflow-hidden w-full">
                                 <div
-                                    style={{ padding: '1.5rem 2rem', cursor: 'pointer', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: '500', fontSize: '1.1rem' }}
+                                    className="p-6 md:px-8 cursor-pointer flex justify-between items-center font-medium text-lg text-white/90"
                                     onClick={() => setActiveFaq(activeFaq === idx ? null : idx)}
                                 >
-                                    {faq.q}
-                                    <span style={{ color: 'var(--theme-accent)', fontSize: '1.5rem', fontWeight: 300 }}>{activeFaq === idx ? 'âˆ’' : '+'}</span>
+                                    <span className="text-left w-full pr-4">{faq.q}</span>
+                                    <span className="text-[var(--theme-accent)] text-2xl font-light w-8 text-right flex-shrink-0">{activeFaq === idx ? '−' : '+'}</span>
                                 </div>
                                 {activeFaq === idx && (
-                                    <div style={{ padding: '0 2rem 2rem 2rem', color: 'rgba(255,255,255,0.6)', lineHeight: '1.8' }}>
+                                    <div className="px-6 md:px-8 pb-8 text-white/60 leading-relaxed text-left max-w-full break-words">
                                         {faq.a}
                                     </div>
                                 )}
@@ -162,5 +163,3 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
-
-

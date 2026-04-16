@@ -1,4 +1,6 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+﻿@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
   --theme-primary: #223148;
@@ -198,131 +200,18 @@ a {
     font-size: 2rem !important;
   }
 
-  header .container {
+  .flex-col-mobile {
     flex-direction: column !important;
-    height: auto !important;
-    padding: 15px 10px !important;
+    align-items: flex-start !important;
+    gap: 2.5rem !important;
   }
 
-  header nav {
-    gap: 10px !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    margin-top: 10px;
-  }
-
-  header nav a {
-    font-size: 0.85rem !important;
-  }
-
-  div[style*="grid-template-columns: repeat(5"],
-  div[style*="grid-template-columns: repeat(4"] {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  .grid-2,
-  .grid-3,
-  .grid-4 {
-    grid-template-columns: 1fr !important;
-  }
-
-  section[style*="display: flex"] {
-    flex-direction: column !important;
-  }
-
-  /* Header Response Styles */
-  @media (max-width: 992px) {
-    .mobile-menu-icon {
-      display: block !important;
-    }
-
-    .nav-menu {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      background-color: var(--theme-bg);
-      flex-direction: column;
-      align-items: flex-start !important;
-      padding: 2rem;
-      gap: 1.5rem !important;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      display: none !important;
-      border-top: 1px solid rgba(0, 0, 0, 0.05);
-    }
-
-    .nav-menu.active {
-      display: flex !important;
-    }
-
-    .nav-menu a {
-      color: var(--theme-text-main) !important;
-      width: 100%;
-    }
-
-    .contact-btn {
-      color: var(--theme-text-inverse) !important;
-      background-color: var(--theme-primary) !important;
-      border: none !important;
-      justify-content: center;
-    }
-  }
-
-  div[style*="display: flex"] {
-    flex-wrap: wrap !important;
-  }
-
-  div[style*="flex: 1"],
-  div[style*="flex:1"] {
-    flex: 1 1 100% !important;
-    min-width: 100% !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  footer>div>div {
-    grid-template-columns: 1fr !important;
-    gap: 2rem !important;
-    padding: 2rem !important;
-  }
-
-  footer>div>div>div {
-    text-align: center !important;
-    align-items: center !important;
-  }
-
-  footer ul {
-    align-items: center !important;
-  }
-
-  div[style*="position: fixed"][style*="z-index: 1000"] {
-    top: auto !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    left: 0 !important;
-    transform: none !important;
-    width: 100% !important;
-    display: flex !important;
-  }
-
-  div[style*="position: fixed"][style*="z-index: 1000"] a {
-    writing-mode: horizontal-tb !important;
-    transform: none !important;
-    width: 100% !important;
-    text-align: center !important;
-    border-radius: 0 !important;
-    height: auto !important;
-    padding: 15px !important;
+  .footer-container {
+    margin-top: -60px !important;
   }
 }
 
 @media (max-width: 480px) {
-
-  div[style*="grid-template-columns: repeat(5"],
-  div[style*="grid-template-columns: repeat(4"] {
-    grid-template-columns: 1fr !important;
-  }
-
   h1 {
     font-size: 2rem !important;
   }
@@ -333,5 +222,47 @@ a {
 
   header nav a {
     font-size: 0.8rem !important;
+  }
+}
+
+/* Header Response Styles (Standalone) */
+@media (max-width: 992px) {
+  .mobile-menu-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--theme-bg);
+    flex-direction: column;
+    align-items: flex-start !important;
+    /* Added top padding to prevent header clipping */
+    padding: 3rem 2rem 2rem 2rem;
+    gap: 1.5rem !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: none !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-menu.active {
+    display: flex !important;
+  }
+
+  .nav-menu a {
+    color: var(--theme-text-main) !important;
+    width: 100%;
+  }
+
+  .contact-btn {
+    color: var(--theme-text-inverse) !important;
+    background-color: var(--theme-primary) !important;
+    border: none !important;
+    justify-content: center;
   }
 }

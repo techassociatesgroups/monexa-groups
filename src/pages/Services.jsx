@@ -19,42 +19,42 @@ const Services = () => {
             icon: <FaHardHat />,
             desc: 'End-to-end construction services from foundation to finishing, using modern techniques and quality materials. Our construction team handles residential towers, commercial complexes, and infrastructure projects with precision and adherence to international safety standards.',
             features: ['Structural Engineering', 'Quality Assurance', 'Timely Delivery', 'Green Building Practices'],
-            img: 'https://images.unsplash.com/photo-1541888086425-d81bb19240f5?q=80&w=2000&auto=format&fit=crop'
+            img: '/images/monexa ventures 14.jpg'
         },
         {
             name: 'Real Estate',
             icon: <FaCity />,
             desc: 'Comprehensive real estate solutions including property development, sales, and property management across residential, commercial, and retail segments. We help you find or build the perfect property.',
             features: ['Property Development', 'Sales & Marketing', 'Property Management', 'Legal Support'],
-            img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop'
+            img: '/images/monexa ventures 15.jpg'
         },
         {
             name: 'Gated Community',
             icon: <FaTree />,
             desc: 'Premium gated community developments with world-class amenities, 24/7 security, and thoughtfully designed common spaces. Our communities foster a sense of belonging while ensuring privacy.',
             features: ['24/7 Security', 'Clubhouse & Recreation', 'Landscaped Gardens', 'Community Events'],
-            img: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2000&auto=format&fit=crop'
+            img: '/images/monexa ventures 16.jpg'
         },
         {
             name: 'Architecture',
             icon: <FaPencilRuler />,
             desc: 'Innovative architectural design that combines aesthetic appeal with functional efficiency. Our architects create sustainable and iconic structures tailored to user needs.',
             features: ['Urban Planning', 'Interior Architecture', 'Sustainable Design', '3D Visualization'],
-            img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop'
+            img: '/images/monexa ventures 17.jpg'
         },
         {
             name: 'Interiors',
             icon: <FaCouch />,
             desc: 'Bespoke interior design services for residential and commercial spaces. From modern minimalist to classic luxury, our designers bring your vision to life with meticulous attention to detail.',
             features: ['Space Planning', 'Material Selection', 'Custom Furniture', 'Lighting Design'],
-            img: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=2000&auto=format&fit=crop'
+            img: '/images/monexa ventures 18.jpg'
         },
         {
             name: 'Builders',
             icon: <FaHome />,
             desc: 'As trusted builders with over two decades of experience, we execute projects of all scales with commitment to quality, safety, and on-time delivery. Our skilled workforce ensures every project meets global standards.',
             features: ['Skilled Workforce', 'Modern Equipment', 'Safety Compliance', 'Project Management'],
-            img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000&auto=format&fit=crop'
+            img: '/images/monexa ventures 1.jpg'
         }
     ];
 
@@ -186,7 +186,7 @@ const Services = () => {
                         </p>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
                         {amenities.map((item, idx) => (
                             <motion.div
                                 key={idx}

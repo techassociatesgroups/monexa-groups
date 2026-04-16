@@ -20,7 +20,7 @@ const Footer = () => {
                 <div style={{
                     position: 'absolute',
                     top: 0, left: 0, width: '100%', height: '100%',
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop")',
+                    backgroundImage: 'url("/images/monexa ventures 1.jpg")',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     filter: 'brightness(0.4)',
@@ -76,7 +76,10 @@ const Footer = () => {
                         we're here to bring your dream to life.
                     </motion.p>
 
-                    <motion.button
+                    <motion.a
+                        href="https://wa.me/6385303666?text=I%20would%20like%20to%20get%20a%20free%20quote"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         whileHover={{ scale: 1.1, backgroundColor: 'var(--theme-accent)', color: 'var(--theme-text-inverse)' }}
                         style={{
                             width: '160px',
@@ -94,91 +97,86 @@ const Footer = () => {
                             justifyContent: 'center',
                             textAlign: 'center',
                             padding: '1rem',
-                            transition: 'all 0.4s ease'
+                            transition: 'all 0.4s ease',
+                            textDecoration: 'none'
                         }}
                     >
                         Get your <br /> free quote
-                    </motion.button>
+                    </motion.a>
                 </div>
             </div>
 
             {/* FLOATING FOOTER BOX */}
-            <div className="container" style={{
-                position: 'relative',
-                zIndex: 10,
-                marginTop: '-120px',
-                paddingBottom: '5rem'
-            }}>
-                <div style={{
-                    backgroundColor: 'var(--theme-card)',
-                    borderRadius: '40px',
-                    padding: '5rem 4rem',
-                    boxShadow: '0 25px 50px rgba(0,0,0,0.8)',
-                    border: '1px solid rgba(212, 175, 55, 0.15)',
-                    display: 'grid',
-                    gridTemplateColumns: '1.2fr 2fr 1fr',
-                    gap: '4rem'
-                }}>
+            <div className="container mx-auto px-4 relative z-10 -mt-24 md:-mt-32 pb-20">
+                <div className="bg-white rounded-[32px] md:rounded-[48px] p-8 md:p-16 shadow-2xl border border-gray-100 flex flex-col lg:flex-row gap-12 lg:gap-24">
+
                     {/* Brand Info */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        <Link to="/" style={{ textDecoration: 'none' }}>
-                            <div style={{ fontSize: '2.2rem', fontWeight: 700, fontFamily: 'Outfit, sans-serif', color: 'var(--theme-text-main)' }}>
-                                <span style={{ color: 'var(--theme-accent)' }}> </span> monexa
-                            </div>
+                    <div className="lg:w-1/3 space-y-6">
+                        <Link to="/" className="inline-block group">
+                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 font-['Outfit']">
+                                monexa<span className="text-[#C5A059] ml-1">groups</span>
+                            </h2>
                         </Link>
-                        <p style={{ color: 'var(--theme-text-muted)', lineHeight: 1.8, fontSize: '0.95rem' }}>
-                            We are creators of transformative spaces <br />
-                            that inspire, innovate, and endure.
+                        <p className="text-gray-500 text-lg leading-relaxed max-w-sm">
+                            We are creators of transformative spaces that inspire, innovate, and endure. Built on a legacy of structural excellence.
                         </p>
                     </div>
 
-                    {/* Navigation Columns */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                            <li style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--theme-accent)', marginBottom: '0.5rem' }}>Company</li>
-                            {[
-                                { name: 'About Us', path: '/about' },
-                                { name: 'Our Services', path: '/services' },
-                                { name: 'Investor Relations', path: '/invest' },
-                                { name: 'EMI Calculator', path: '/emi-calculator' },
-                                { name: 'Contact Us', path: '/contact' }
-                            ].map(item => (
-                                <li key={item.name}><Link to={item.path} style={{ textDecoration: 'none', color: 'var(--theme-text-main)', fontSize: '0.95rem', fontWeight: 400, transition: 'color 0.3s' }} onMouseEnter={e => e.target.style.color = 'var(--theme-accent)'} onMouseLeave={e => e.target.style.color = 'var(--theme-text-main)'}>{item.name}</Link></li>
-                            ))}
-                        </ul>
-                        <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
-                            <li style={{ fontSize: '1.05rem', fontWeight: 600, color: 'var(--theme-accent)', marginBottom: '0.5rem' }}>Global Projects</li>
-                            {[
-                                { name: 'India Developments', path: '/India' },
-                                { name: 'Malaysia Projects', path: '/ Malaysia' },
-                                { name: 'Dubai Operations', path: '/commercial' },
-                                { name: 'Singapore Portfolio', path: '/upcoming' }
-                            ].map(item => (
-                                <li key={item.name}><Link to={item.path} style={{ textDecoration: 'none', color: 'var(--theme-text-main)', fontSize: '0.95rem', fontWeight: 400, transition: 'color 0.3s' }} onMouseEnter={e => e.target.style.color = 'var(--theme-accent)'} onMouseLeave={e => e.target.style.color = 'var(--theme-text-main)'}>{item.name}</Link></li>
-                            ))}
-                        </ul>
+                    {/* Links Grid */}
+                    <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-12">
+                        <div className="space-y-6">
+                            <h4 className="text-sm font-bold uppercase tracking-widest text-[#C5A059]">Company</h4>
+                            <ul className="space-y-4">
+                                {[
+                                    { name: 'About Us', path: '/about' },
+                                    { name: 'Our Services', path: '/services' },
+                                    { name: 'Investor Relations', path: '/invest' },
+                                    { name: 'EMI Calculator', path: '/emi-calculator' },
+                                    { name: 'Contact Us', path: '/contact' }
+                                ].map(item => (
+                                    <li key={item.name}>
+                                        <Link to={item.path} className="text-gray-600 hover:text-[#C5A059] transition-colors text-base font-medium no-underline flex items-center gap-2">
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="space-y-6">
+                            <h4 className="text-sm font-bold uppercase tracking-widest text-[#C5A059]">Global Projects</h4>
+                            <ul className="space-y-4">
+                                {[
+                                    { name: 'India Developments', path: '/India' },
+                                    { name: 'Malaysia Projects', path: '/Malaysia' },
+                                    { name: 'Dubai Operations', path: '/commercial' },
+                                    { name: 'Singapore Portfolio', path: '/upcoming' }
+                                ].map(item => (
+                                    <li key={item.name}>
+                                        <Link to={item.path} className="text-gray-600 hover:text-[#C5A059] transition-colors text-base font-medium no-underline">
+                                            {item.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
 
                     {/* Contact Info */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        <div>
-                            <div style={{ fontSize: '1.4rem', fontWeight: 600, color: 'var(--theme-text-main)', marginBottom: '0.5rem' }}>6385303666</div>
-                            <Link to="mailto:monexa@example.com" style={{
-                                fontSize: '1.4rem',
-                                fontWeight: 500,
-                                color: 'var(--theme-text-muted)',
-                                textDecoration: 'none',
-                                borderBottom: '2px solid var(--theme-accent)',
-                                paddingBottom: '2px'
-                            }}>
+                    <div className="lg:w-1/4 space-y-8">
+                        <div className="space-y-2">
+                            <h4 className="text-sm font-bold uppercase tracking-widest text-[#C5A059] mb-4">Get In Touch</h4>
+                            <a href="tel:6385303666" className="text-2xl font-bold text-gray-900 block no-underline hover:text-[#C5A059] transition-colors">6385303666</a>
+                            <a href="mailto:monexa@example.com" className="text-gray-500 hover:text-gray-900 transition-colors text-lg inline-block border-b border-gray-200 pb-1 no-underline">
                                 monexa@example.com
-                            </Link>
+                            </a>
                         </div>
 
                         {/* Social Links */}
-                        <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
+                        <div className="flex flex-wrap gap-6 items-center pt-4">
                             {['Facebook', 'Instagram', 'Youtube', 'Twitter'].map(s => (
-                                <Link key={s} to="#" style={{ fontSize: '0.85rem', color: 'var(--theme-text-muted)', textDecoration: 'none' }}>{s}</Link>
+                                <Link key={s} to="#" className="text-gray-400 hover:text-[#C5A059] transition-all transform hover:scale-110 text-sm font-semibold no-underline uppercase tracking-wider">
+                                    {s}
+                                </Link>
                             ))}
                         </div>
                     </div>

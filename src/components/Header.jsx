@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MdEmail } from 'react-icons/md';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
     const location = useLocation();
@@ -16,6 +16,10 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        setIsMobileMenuOpen(false);
+    }, [location.pathname]);
+
     const navLinks = [
         { name: 'Home', path: '/' },
         { name: 'About', path: '/about' },
@@ -23,7 +27,6 @@ const Header = () => {
         { name: 'Projects', path: '/India' },
         { name: 'Investor', path: '/invest' },
         { name: 'EMI Calculator', path: '/emi-calculator' },
-        { name: 'Contact Us', path: '/contact' }
     ];
 
     const isActive = (path) => {
@@ -33,108 +36,94 @@ const Header = () => {
     };
 
     return (
-        <header style={{
-            position: 'fixed',
-            top: 0,
-            zIndex: 1000,
-            width: '100%',
-            backgroundColor: scrolled ? '#c59f5921' : 'transparent',
-            backdropFilter: scrolled ? 'blur(12px) saturate(180%)' : 'none',
-            WebkitBackdropFilter: scrolled ? 'blur(12px) saturate(180%)' : 'none', // Safari support    
-            transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
-        }}>
-            <div className="container" style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                height: scrolled ? '70px' : '100px',
-                transition: 'height 0.3s ease',
-                padding: '0 1rem'
-            }}>
-                {/* Logo Section */}
-                <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '9px' }}>
-                    <div style={{
-                        fontSize: '1.8rem',
-                        fontWeight: 700,
-                        fontFamily: "'Outfit', sans-serif",
-                        letterSpacing: '1px'
-                    }}>
-                        <span style={{ color: scrolled ? 'var(--theme-text-main)' : 'white' }}>MONEXA</span>
-                        <span style={{ color: 'var(--theme-accent)', marginLeft: '8px' }}>groups</span>
+        <header
+            className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${scrolled
+                    ? 'bg-white/80 backdrop-blur-xl shadow-sm py-4'
+                    : 'bg-transparent py-6'
+                }`}
+        >
+            <div className="container mx-auto px-6 flex items-center justify-between">
+
+                {/* Logo */}
+                <Link to="/" className="no-underline z-[1001]">
+                    <div className="text-2xl md:text-3xl font-bold font-['Outfit'] tracking-tighter">
+                        <span className={scrolled ? 'text-gray-900' : 'text-white'}>MONEXA</span>
+                        <span className="text-[#C5A059] ml-1">groups</span>
                     </div>
                 </Link>
 
-                {/* Mobile Menu Icon */}
-                <div className="mobile-menu-icon" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} style={{ cursor: 'pointer', fontSize: '1.8rem', color: scrolled || isMobileMenuOpen ? 'black' : 'white', display: 'none', zIndex: 1001 }}>
-                    {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
-                </div>
-
-                {/* Navigation Links */}
-                <nav className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
+                {/* Desktop Nav */}
+                <nav className="hidden lg:flex items-center gap-10">
                     {navLinks.map((link, idx) => (
                         <Link
                             key={idx}
                             to={link.path}
-                            style={{
-                                color: scrolled ? (isActive(link.path) ? 'black' : 'black') : 'white',
-                                fontWeight: isActive(link.path) ? 600 : 400,
-                                fontSize: '0.95rem',
-                                textDecoration: 'none',
-                                position: 'relative',
-                                transition: 'all 0.3s ease',
-                                fontFamily: 'Outfit, sans-serif',
-                                letterSpacing: '0.5px'
-                            }}
+                            className={`no-underline text-sm font-semibold tracking-wide uppercase transition-all duration-300 relative group ${scrolled ? 'text-gray-700' : 'text-white/90'
+                                } hover:text-[#C5A059]`}
                         >
                             {link.name}
-                            {isActive(link.path) && (
-                                <span style={{
-                                    position: 'absolute',
-                                    bottom: '-5px',
-                                    left: 0,
-                                    width: '100%',
-                                    height: '2px',
-                                    backgroundColor: 'var(--theme-accent)'
-                                }} />
-                            )}
+                            <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-[#C5A059] transition-transform duration-300 ${isActive(link.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                                }`} />
                         </Link>
                     ))}
-
-                    {/* Contact Button */}
                     <Link
                         to="/contact"
-                        className="contact-btn"
-                        style={{
-                            padding: '0.8rem 1rem',
-                            backgroundColor: 'transparent',
-                            color: scrolled ? 'var(--theme-accent)' : 'white',
-                            border: '1px solid',
-                            borderColor: scrolled ? 'var(--theme-accent)' : 'rgba(253, 244, 244, 0.4)',
-                            borderRadius: '4px',
-                            textDecoration: 'none',
-                            fontSize: '0.9rem',
-                            fontWeight: 600,
-                            letterSpacing: '1px',
-                            transition: 'all 0.3s ease',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '10px'
-                        }}
-                        onMouseOver={(e) => {
-                            if (!scrolled) e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)';
-                            else {
-                                e.currentTarget.style.backgroundColor = 'var(--theme-accent)';
-                                e.currentTarget.style.color = 'var(--theme-text-inverse)';
-                            }
-                        }}
-                        onMouseOut={(e) => {
-                            e.currentTarget.style.backgroundColor = 'transparent';
-                            if (scrolled) e.currentTarget.style.color = 'var(--theme-accent)';
-                        }}
+                        className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 no-underline ${scrolled
+                                ? 'bg-gray-900 text-white hover:bg-[#C5A059]'
+                                : 'bg-white text-gray-900 hover:bg-[#C5A059] hover:text-white'
+                            }`}
                     >
-                        CONTACT
+                        Contact
                     </Link>
                 </nav>
+
+                {/* Mobile Menu Toggle */}
+                <button
+                    className={`lg:hidden text-2xl z-[1001] transition-colors ${(isMobileMenuOpen || scrolled) ? 'text-gray-900' : 'text-white'
+                        }`}
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                >
+                    {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+                </button>
+
+                {/* Mobile Menu Overlay */}
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+                            className="fixed inset-0 bg-white z-[1000] lg:hidden flex flex-col p-12"
+                        >
+                            <div className="flex flex-col gap-8 mt-16">
+                                {navLinks.map((link, idx) => (
+                                    <Link
+                                        key={idx}
+                                        to={link.path}
+                                        className="text-3xl font-bold text-gray-900 no-underline hover:text-[#C5A059] transition-colors"
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        {link.name}
+                                    </Link>
+                                ))}
+                                <Link
+                                    to="/contact"
+                                    className="text-3xl font-bold text-[#C5A059] no-underline"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    Contact Us
+                                </Link>
+                            </div>
+                            <div className="mt-auto space-y-4">
+                                <p className="text-gray-400 uppercase tracking-widest text-xs font-bold">Follow Us</p>
+                                <div className="flex gap-6 text-xl text-gray-600">
+                                    <span>FB</span><span>IG</span><span>YT</span><span>TW</span>
+                                </div>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </header>
     );

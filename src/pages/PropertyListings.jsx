@@ -38,7 +38,7 @@ const generateDummyData = () => {
                 category: country,
                 type: type,
                 price: type === 'Commercial' ? 'Corporate Asset' : 'Premium Pricing',
-                img: `https://images.unsplash.com/photo-${safePhotoId}?q=80&w=800&auto=format&fit=crop`
+                img: `/images/monexa ventures 13.jpg`
             });
             idCounter++;
         }
