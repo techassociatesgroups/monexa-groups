@@ -1,6 +1,14 @@
 ﻿import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import {
+    FaBars,
+    FaTimes,
+    FaFacebookF,
+    FaInstagram,
+    FaYoutube,
+    FaTwitter,
+    FaPhoneAlt
+} from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
@@ -12,13 +20,14 @@ const Header = () => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
         };
-        window.addEventListener('scroll', handleScroll);
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     useEffect(() => {
-        setIsMobileMenuOpen(false);
-    }, [location.pathname]);
+        document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset';
+    }, [isMobileMenuOpen]);
 
     const navLinks = [
         { name: 'Home', path: '/' },
@@ -29,25 +38,26 @@ const Header = () => {
         { name: 'EMI Calculator', path: '/emi-calculator' },
     ];
 
-    const isActive = (path) => {
-        if (path === '/' && location.pathname !== '/') return false;
-        if (path !== '/' && location.pathname.startsWith(path)) return true;
-        return false;
-    };
-
     return (
         <header
-            className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${scrolled
-                    ? 'bg-white/80 backdrop-blur-xl shadow-sm py-4'
-                    : 'bg-transparent py-6'
-                }`}
+            className={`fixed top-10 left-0 w-full z-[1000] transition-all duration-500 ${
+                scrolled || isMobileMenuOpen
+                    ? 'bg-white/95 backdrop-blur-xl shadow-md py-6'
+                    : 'bg-transparent py-10'
+            }`}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-
+                
                 {/* Logo */}
-                <Link to="/" className="no-underline z-[1001]">
-                    <div className="text-2xl md:text-3xl font-bold font-['Outfit'] tracking-tighter">
-                        <span className={scrolled ? 'text-gray-900' : 'text-white'}>MONEXA</span>
+                <Link
+                    to="/"
+                    className="no-underline z-[10002]"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                >
+                    <div className="text-2xl md:text-3xl font-bold tracking-tight">
+                        <span className={scrolled || isMobileMenuOpen ? 'text-gray-900' : 'text-white'}>
+                            MONEXA
+                        </span>
                         <span className="text-[#C5A059] ml-1">groups</span>
                     </div>
                 </Link>
@@ -58,68 +68,97 @@ const Header = () => {
                         <Link
                             key={idx}
                             to={link.path}
-                            className={`no-underline text-sm font-semibold tracking-wide uppercase transition-all duration-300 relative group ${scrolled ? 'text-gray-700' : 'text-white/90'
-                                } hover:text-[#C5A059]`}
+                            className={`no-underline text-sm font-semibold uppercase tracking-wide transition-all duration-300 ${
+                                scrolled ? 'text-gray-700' : 'text-white'
+                            } hover:text-[#C5A059]`}
                         >
                             {link.name}
-                            <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-[#C5A059] transition-transform duration-300 ${isActive(link.path) ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-                                }`} />
                         </Link>
                     ))}
+
+                    {/* Fixed Contact Button */}
                     <Link
                         to="/contact"
-                        className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 no-underline ${scrolled
-                                ? 'bg-gray-900 text-white hover:bg-[#C5A059]'
-                                : 'bg-white text-gray-900 hover:bg-[#C5A059] hover:text-white'
-                            }`}
+                        className="bg-[#C5A059] text-white px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wide no-underline whitespace-nowrap leading-none hover:bg-black transition-all duration-300"
                     >
                         Contact
                     </Link>
                 </nav>
 
-                {/* Mobile Menu Toggle */}
+                {/* Mobile Toggle */}
                 <button
-                    className={`lg:hidden text-2xl z-[1001] transition-colors ${(isMobileMenuOpen || scrolled) ? 'text-gray-900' : 'text-white'
-                        }`}
+                    className={`lg:hidden text-2xl z-[10002] p-2 ${
+                        scrolled || isMobileMenuOpen
+                            ? 'text-gray-900'
+                            : 'text-white'
+                    }`}
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
                 </button>
 
-                {/* Mobile Menu Overlay */}
+                {/* Mobile Menu */}
                 <AnimatePresence>
                     {isMobileMenuOpen && (
                         <motion.div
-                            initial={{ x: '100%' }}
-                            animate={{ x: 0 }}
-                            exit={{ x: '100%' }}
-                            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                            className="fixed inset-0 bg-white z-[1000] lg:hidden flex flex-col p-12"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            className="fixed inset-0 bg-white/95 backdrop-blur-2xl z-[10001] lg:hidden flex flex-col h-[100dvh]"
                         >
-                            <div className="flex flex-col gap-8 mt-16">
-                                {navLinks.map((link, idx) => (
-                                    <Link
-                                        key={idx}
-                                        to={link.path}
-                                        className="text-3xl font-bold text-gray-900 no-underline hover:text-[#C5A059] transition-colors"
-                                        onClick={() => setIsMobileMenuOpen(false)}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                ))}
-                                <Link
-                                    to="/contact"
-                                    className="text-3xl font-bold text-[#C5A059] no-underline"
-                                    onClick={() => setIsMobileMenuOpen(false)}
-                                >
-                                    Contact Us
-                                </Link>
+                            <div className="h-24 w-full flex-shrink-0" />
+
+                            <div className="flex-1 overflow-y-auto px-6">
+                                <nav className="flex flex-col gap-8 py-8">
+                                    {navLinks.map((link, idx) => (
+                                        <motion.div
+                                            key={idx}
+                                            initial={{ x: -20, opacity: 0 }}
+                                            animate={{ x: 0, opacity: 1 }}
+                                            transition={{ delay: idx * 0.05 }}
+                                        >
+                                            <Link
+                                                to={link.path}
+                                                className="block ml-4 text-2xl font-bold text-gray-900 no-underline hover:text-[#C5A059]"
+                                                onClick={() =>
+                                                    setIsMobileMenuOpen(false)
+                                                }
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        </motion.div>
+                                    ))}
+
+                                    <div className="mt-4 pt-8 border-t border-gray-200 ml-4">
+                                        <p className="text-[#C5A059] text-xs font-black uppercase tracking-widest mb-4">
+                                            Get In Touch
+                                        </p>
+
+                                        <a
+                                            href="tel:6385303666"
+                                            className="flex items-center gap-4 text-xl font-bold text-gray-900 no-underline"
+                                        >
+                                            <div className="w-10 h-10 rounded-full bg-[#C5A059]/10 flex items-center justify-center text-[#C5A059]">
+                                                <FaPhoneAlt size={16} />
+                                            </div>
+                                            6385303666
+                                        </a>
+                                    </div>
+                                </nav>
                             </div>
-                            <div className="mt-auto space-y-4">
-                                <p className="text-gray-400 uppercase tracking-widest text-xs font-bold">Follow Us</p>
+
+                            <div className="p-8 border-t border-gray-100 bg-white/60">
                                 <div className="flex gap-6 text-xl text-gray-600">
-                                    <span>FB</span><span>IG</span><span>YT</span><span>TW</span>
+                                    <a href="#"><FaFacebookF /></a>
+                                    <a href="#"><FaInstagram /></a>
+                                    <a href="#"><FaYoutube /></a>
+                                    <a href="#"><FaTwitter /></a>
                                 </div>
+
+                                <p className="text-gray-400 text-[10px] mt-5">
+                                    © {new Date().getFullYear()} MONEXA GROUPS.
+                                    ALL RIGHTS RESERVED.
+                                </p>
                             </div>
                         </motion.div>
                     )}

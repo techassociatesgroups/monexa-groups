@@ -155,7 +155,7 @@ const Home = () => {
                 </div>
 
                 {/* Fixed Enquiry Button */}
-                <div style={{ position: 'fixed', right: '0', top: '50%', transform: 'translateY(-50%)', zIndex: 1000 }}>
+                <div style={{ position: 'fixed', right: '0', top: '50%', transform: 'translateY(-50%)', zIndex: 999 }}>
                     <Link to="/contact" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', writingMode: 'vertical-rl', transform: 'rotate(180deg)', height: '180px', backgroundColor: '#C5A059', color: '#fff', padding: '20px 14px', textDecoration: 'none', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', fontSize: '0.9rem', boxShadow: '-4px 0 12px rgba(0,0,0,0.2)', borderRadius: '4px 0 0 4px' }}>
                         ENQUIRE NOW
                     </Link>
@@ -289,7 +289,8 @@ const Home = () => {
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
                         gap: '1rem',
-                        alignItems: 'stretch'
+                        alignItems: 'stretch',
+                        
                     }}>
                         {[
                             {
@@ -368,12 +369,12 @@ const Home = () => {
 
                                 <div style={{ position: 'relative', zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', height: '100%' }}>
                                     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                                        <h2 style={{ fontSize: '3.5rem', fontWeight: '700', margin: 0, fontFamily: 'Outfit, sans-serif', textShadow: '0px 2px 10px rgba(0,0,0,0.6)' }}>
+                                        <h2 style={{ fontSize: '3.5rem', fontWeight: '700', margin: 0, fontFamily: 'Outfit, sans-serif', textShadow: '0px 2px 10px rgba(0,0,0,0.6)', color: 'white' }}>
                                             {loc.code}
                                         </h2>
                                     </div>
                                     <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                                        <h3 style={{ fontSize: '1.2rem', fontWeight: '700', margin: '0 0 1rem 0', textShadow: '0px 2px 8px rgba(0,0,0,0.6)' }}>
+                                        <h3 style={{ fontSize: '1.2rem', fontWeight: '700', margin: '0 0 1rem 0', textShadow: '0px 2px 8px rgba(0,0,0,0.6)', color: 'white' }}>
                                             {loc.country}
                                         </h3>
                                         <p style={{ fontSize: '0.85rem', lineHeight: '1.6', margin: 0, padding: '0 10px', textShadow: '0px 2px 6px rgba(0,0,0,0.6)', fontWeight: 500 }}>

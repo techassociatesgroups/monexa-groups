@@ -17,7 +17,7 @@ const InvestorRelations = () => {
         <div className="page-transition bg-[var(--theme-card)] min-h-screen font-['Inter'] w-full overflow-hidden flex flex-col items-center">
 
             {/* HERO PITCH */}
-            <section className="pt-40 px-8 pb-24 bg-[var(--theme-primary)] text-white text-center w-full">
+            <section className="pt-90 px-8 pb-24 bg-[var(--theme-primary)] text-white text-center w-full">
                 <div className="container mx-auto max-w-4xl w-full">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
