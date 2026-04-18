@@ -36,11 +36,11 @@ const EmiCalculator = () => {
     const principalPercent = totalPayment > 0 ? (Number(principal) / totalPayment) * 100 : 50;
     const interestPercent = 100 - principalPercent;
 
-    const sliderClass = 'h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-100 accent-[#2f69a7]';
+    const sliderClass = 'h-2 w-full cursor-pointer appearance-none rounded-full bg-slate-100 accent-bg-[#0F2A44]';
 
     return (
         <div className="page-transition min-h-screen w-full bg-[#f8fafc] pb-16 font-['Inter']">
-            <section className="w-full bg-[#2f69a7] px-4 py-20 text-white sm:px-6 lg:px-8 lg:py-24">
+            <section className="w-full bg-[#0F2A44] px-4 py-20 text-white sm:px-6 lg:px-8 lg:py-24">
                 <div className="mx-auto max-w-5xl text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
@@ -127,7 +127,7 @@ const EmiCalculator = () => {
                     </div>
 
                     <div className="flex flex-col gap-6">
-                        <div className="rounded-2xl bg-[#2f69a7] px-6 py-8 text-center text-white shadow-[0_16px_40px_rgba(47,105,167,0.24)] sm:px-8 sm:py-10">
+                        <div className="rounded-2xl bg-[#0F2A44] px-6 py-8 text-center text-white shadow-[0_16px_40px_rgba(47,105,167,0.24)] sm:px-8 sm:py-10">
                             <div className="mb-4 flex justify-center text-white/90">
                                 <FaCalculator size={28} />
                             </div>

@@ -1,218 +1,259 @@
-﻿import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useLocation } from 'react-router-dom';
-import { FaHardHat, FaCity, FaTree, FaPencilRuler, FaCouch, FaHome, FaUsers, FaDumbbell, FaSwimmer, FaUtensils, FaGraduationCap, FaBriefcase, FaDesktop, FaShieldAlt, FaParking, FaLeaf } from 'react-icons/fa';
+﻿import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLocation } from "react-router-dom";
+import {
+  FaHardHat,
+  FaCity,
+  FaTree,
+  FaPencilRuler,
+  FaCouch,
+  FaHome,
+  FaUsers,
+  FaDumbbell,
+  FaSwimmer,
+  FaUtensils,
+  FaGraduationCap,
+  FaBriefcase,
+  FaDesktop,
+  FaShieldAlt,
+  FaParking,
+  FaLeaf,
+} from "react-icons/fa";
 
 const Services = () => {
-    const location = useLocation();
-    const [selectedService, setSelectedService] = useState(location.state?.selectedService || 'Construction');
+  const location = useLocation();
 
-    useEffect(() => {
-        if (location.state?.selectedService) {
-            setSelectedService(location.state.selectedService);
-        }
-    }, [location.state?.selectedService]);
+  const [selectedService, setSelectedService] = useState(
+    location.state?.selectedService || "Construction"
+  );
 
-    const services = [
-        {
-            name: 'Construction',
-            icon: <FaHardHat />,
-            desc: 'End-to-end construction services from foundation to finishing, using modern techniques and quality materials. Our construction team handles residential towers, commercial complexes, and infrastructure projects with precision and adherence to international safety standards.',
-            features: ['Structural Engineering', 'Quality Assurance', 'Timely Delivery', 'Green Building Practices'],
-            img: '/images/monexa ventures 14.jpg'
-        },
-        {
-            name: 'Real Estate',
-            icon: <FaCity />,
-            desc: 'Comprehensive real estate solutions including property development, sales, and property management across residential, commercial, and retail segments. We help you find or build the perfect property.',
-            features: ['Property Development', 'Sales & Marketing', 'Property Management', 'Legal Support'],
-            img: '/images/monexa ventures 15.jpg'
-        },
-        {
-            name: 'Gated Community',
-            icon: <FaTree />,
-            desc: 'Premium gated community developments with world-class amenities, 24/7 security, and thoughtfully designed common spaces. Our communities foster a sense of belonging while ensuring privacy.',
-            features: ['24/7 Security', 'Clubhouse & Recreation', 'Landscaped Gardens', 'Community Events'],
-            img: '/images/monexa ventures 16.jpg'
-        },
-        {
-            name: 'Architecture',
-            icon: <FaPencilRuler />,
-            desc: 'Innovative architectural design that combines aesthetic appeal with functional efficiency. Our architects create sustainable and iconic structures tailored to user needs.',
-            features: ['Urban Planning', 'Interior Architecture', 'Sustainable Design', '3D Visualization'],
-            img: '/images/monexa ventures 17.jpg'
-        },
-        {
-            name: 'Interiors',
-            icon: <FaCouch />,
-            desc: 'Bespoke interior design services for residential and commercial spaces. From modern minimalist to classic luxury, our designers bring your vision to life with meticulous attention to detail.',
-            features: ['Space Planning', 'Material Selection', 'Custom Furniture', 'Lighting Design'],
-            img: '/images/monexa ventures 18.jpg'
-        },
-        {
-            name: 'Builders',
-            icon: <FaHome />,
-            desc: 'As trusted builders with over two decades of experience, we execute projects of all scales with commitment to quality, safety, and on-time delivery. Our skilled workforce ensures every project meets global standards.',
-            features: ['Skilled Workforce', 'Modern Equipment', 'Safety Compliance', 'Project Management'],
-            img: '/images/monexa ventures 1.jpg'
-        }
-    ];
+  useEffect(() => {
+    if (location.state?.selectedService) {
+      setSelectedService(location.state.selectedService);
+    }
+  }, [location.state?.selectedService]);
 
-    const amenities = [
-        { title: 'Co-Working Space', desc: 'Modern shared workspaces within residential complexes', icon: <FaUsers /> },
-        { title: 'Gymnasium', desc: 'State-of-the-art fitness centers with professional equipment', icon: <FaDumbbell /> },
-        { title: 'Swimming Pool', desc: 'Temperature-controlled pools with lounging areas', icon: <FaSwimmer /> },
-        { title: 'Restaurants & Cafés', desc: 'In-house dining options for residents and guests', icon: <FaUtensils /> },
-        { title: 'Near Schools', desc: 'Proximity to reputed educational institutions', icon: <FaGraduationCap /> },
-        { title: 'Near Office Areas', desc: 'Strategic locations close to business districts', icon: <FaBriefcase /> },
-        { title: 'Smart Home Tech', desc: 'IoT-enabled homes with automation systems', icon: <FaDesktop /> },
-        { title: '24/7 Security', desc: 'CCTV surveillance and gated access control', icon: <FaShieldAlt /> },
-        { title: 'Ample Parking', desc: 'Covered and open parking with EV charging', icon: <FaParking /> },
-        { title: 'Green Spaces', desc: 'Parks, jogging tracks, and meditation zones', icon: <FaLeaf /> }
-    ];
+  const services = [
+    {
+      name: "Construction",
+      icon: <FaHardHat />,
+      desc: "End-to-end construction services from foundation to finishing using premium materials and global standards.",
+      features: [
+        "Structural Engineering",
+        "Quality Assurance",
+        "Timely Delivery",
+        "Green Building",
+      ],
+      img: "/images/monexa ventures 14.jpg",
+    },
+    {
+      name: "Real Estate",
+      icon: <FaCity />,
+      desc: "Comprehensive property development, sales and management solutions.",
+      features: [
+        "Property Development",
+        "Sales & Marketing",
+        "Property Management",
+        "Legal Support",
+      ],
+      img: "/images/monexa ventures 15.jpg",
+    },
+    {
+      name: "Gated Community",
+      icon: <FaTree />,
+      desc: "Luxury gated communities with world-class amenities and privacy.",
+      features: [
+        "24/7 Security",
+        "Clubhouse",
+        "Gardens",
+        "Community Living",
+      ],
+      img: "/images/monexa ventures 16.jpg",
+    },
+    {
+      name: "Architecture",
+      icon: <FaPencilRuler />,
+      desc: "Innovative architecture combining elegance and functionality.",
+      features: [
+        "Urban Planning",
+        "Interior Architecture",
+        "Sustainable Design",
+        "3D Visualization",
+      ],
+      img: "/images/monexa ventures 17.jpg",
+    },
+    {
+      name: "Interiors",
+      icon: <FaCouch />,
+      desc: "Luxury interior design for homes and commercial spaces.",
+      features: [
+        "Space Planning",
+        "Custom Furniture",
+        "Lighting Design",
+        "Material Selection",
+      ],
+      img: "/images/monexa ventures 18.jpg",
+    },
+    {
+      name: "Builders",
+      icon: <FaHome />,
+      desc: "Trusted builders delivering high-quality projects on time.",
+      features: [
+        "Skilled Workforce",
+        "Modern Equipment",
+        "Safety Standards",
+        "Project Management",
+      ],
+      img: "/images/monexa ventures 1.jpg",
+    },
+  ];
 
-    return (
-        <div className="page-transition" style={{ backgroundColor: 'var(--theme-card)', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
+  const amenities = [
+    { title: "Co-Working Space", icon: <FaUsers /> },
+    { title: "Gymnasium", icon: <FaDumbbell /> },
+    { title: "Swimming Pool", icon: <FaSwimmer /> },
+    { title: "Restaurants", icon: <FaUtensils /> },
+    { title: "Near Schools", icon: <FaGraduationCap /> },
+    { title: "Business Hubs", icon: <FaBriefcase /> },
+    { title: "Smart Home Tech", icon: <FaDesktop /> },
+    { title: "24/7 Security", icon: <FaShieldAlt /> },
+    { title: "Ample Parking", icon: <FaParking /> },
+    { title: "Green Spaces", icon: <FaLeaf /> },
+  ];
 
-            {/* HERO SECTION */}
-            <section style={{ backgroundColor: 'var(--theme-primary)', color: 'white', padding: '6rem 2rem 6rem 2rem', textAlign: 'center' }}>
-                <div className="container">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                        style={{ fontSize: '3.5rem', fontWeight: 600, marginBottom: '1.5rem', fontFamily: 'Outfit, sans-serif', color: 'white' }}
-                    >
-                        Our Services
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                        style={{ fontSize: '1.2rem', maxWidth: '800px', margin: '0 auto', color: 'rgba(255,255,255,0.8)', lineHeight: 1.6 }}
-                    >
-                        As a premier multinational real estate conglomerate, we offer elite end-to-end solutions tailored to meet the highest international standards of structural integrity and aesthetic grace.
-                    </motion.p>
-                </div>
-            </section>
+  const active = services.find((item) => item.name === selectedService);
 
+  return (
+    <div className="overflow-hidden bg-white text-slate-900">
+      {/* HERO */}
+      <section className="bg-[#0F2A44] px-4 py-20 text-white sm:px-6 lg:px-8 lg:py-28">
+        <div className="mx-auto max-w-6xl text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl font-bold sm:text-5xl lg:text-6xl"
+          >
+            Our Services
+          </motion.h1>
 
-
-
-            {/* INTERACTIVE SERVICE SELECTION */}
-            <section style={{ padding: '6rem 2rem' }}>
-                <div className="container">
-                    {/* Filter Pills */}
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap', marginBottom: '4rem' }}>
-                        {services.map(service => (
-                            <button
-                                key={service.name}
-                                onClick={() => setSelectedService(service.name)}
-                                style={{
-                                    padding: '0.8rem 1.8rem',
-                                    borderRadius: '50px',
-                                    border: '1px solid ' + (selectedService === service.name ? 'var(--theme-primary)' : 'rgba(0,0,0,0.1)'),
-                                    backgroundColor: selectedService === service.name ? 'var(--theme-primary)' : 'white',
-                                    color: selectedService === service.name ? 'white' : '#555',
-                                    cursor: 'pointer',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '10px',
-                                    fontSize: '0.95rem',
-                                    fontWeight: 500,
-                                    transition: 'all 0.3s ease',
-                                    boxShadow: selectedService === service.name ? '0 4px 15px rgba(26,86,166,0.2)' : 'none',
-                                    fontFamily: 'Inter, sans-serif'
-                                }}
-                            >
-                                <span style={{ fontSize: '1.2rem' }}>{service.icon}</span>
-                                {service.name}
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Service Details Card */}
-                    <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-                        <AnimatePresence mode="wait">
-                            {services.filter(s => s.name === selectedService).map(s => (
-                                <motion.div
-                                    key={s.name}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -20 }}
-                                    transition={{ duration: 0.4 }}
-                                    style={{
-                                        backgroundColor: 'white',
-                                        borderRadius: '12px',
-                                        boxShadow: '0 10px 40px rgba(0,0,0,0.05)',
-                                        border: '1px solid rgba(0,0,0,0.05)',
-                                        display: 'flex',
-                                        overflow: 'hidden',
-                                        flexWrap: 'wrap'
-                                    }}
-                                >
-                                    <div style={{ flex: '1 1 500px', padding: '4rem' }}>
-                                        <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2rem' }}>
-                                            <div style={{ width: '60px', height: '60px', backgroundColor: '#F0F4F8', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', color: 'var(--theme-primary)' }}>
-                                                {s.icon}
-                                            </div>
-                                            <h2 style={{ fontSize: '2.4rem', fontWeight: 600, color: 'var(--theme-text-main)', fontFamily: 'Outfit, sans-serif' }}>{s.name}</h2>
-                                        </div>
-                                        <p style={{ fontSize: '1.1rem', color: 'var(--theme-text-muted)', lineHeight: 1.8, marginBottom: '3rem' }}>
-                                            {s.desc}
-                                        </p>
-                                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                                            {s.features.map((feat, i) => (
-                                                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', color: 'var(--theme-text-muted)', fontSize: '0.95rem' }}>
-                                                    <span style={{ color: 'var(--theme-accent)', fontWeight: 900 }}>&bull;</span>
-                                                    {feat}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div style={{ flex: '1 1 400px', minHeight: '350px' }}>
-                                        <img src={s.img} alt={s.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </AnimatePresence>
-                    </div>
-                </div>
-            </section>
-
-            {/* AMENITIES SECTION */}
-            <section style={{ padding: '8rem 2rem', backgroundColor: 'var(--theme-bg)' }}>
-                <div className="container">
-                    <div style={{ textAlign: 'center', marginBottom: '5.5rem' }}>
-                        <h2 style={{ fontSize: '3rem', fontWeight: 600, color: 'var(--theme-text-main)', marginBottom: '1.5rem' }}>Amenities We Provide</h2>
-                        <p style={{ maxWidth: '700px', margin: '0 auto', color: 'var(--theme-text-muted)', fontSize: '1.1rem', lineHeight: 1.7 }}>
-                            Every Monexa groups project comes with carefully curated amenities designed for modern living.
-                        </p>
-                    </div>
-
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '1.5rem' }}>
-                        {amenities.map((item, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.05 }}
-                                style={{
-                                    backgroundColor: 'white',
-                                    padding: '2.5rem',
-                                    borderRadius: '8px',
-                                    textAlign: 'center',
-                                    border: '1px solid rgba(0,0,0,0.03)',
-                                    boxShadow: '0 4px 20px rgba(0,0,0,0.02)'
-                                }}
-                            >
-                                <div style={{ fontSize: '2.5rem', marginBottom: '1.5rem', color: '#1A56A6' }}>{item.icon}</div>
-                                <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--theme-text-main)', marginBottom: '0.8rem' }}>{item.title}</h3>
-                                <p style={{ color: 'var(--theme-text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{item.desc}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+          <motion.p
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mx-auto mt-6 max-w-3xl text-base text-white/80 sm:text-lg"
+          >
+            Elite end-to-end real estate and construction solutions crafted for
+            modern global standards.
+          </motion.p>
         </div>
-    );
+      </section>
+
+      {/* SERVICE FILTER */}
+      <section className="px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex flex-wrap justify-center gap-3">
+            {services.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => setSelectedService(item.name)}
+                className={`flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all
+                ${
+                  selectedService === item.name
+                    ? "bg-[#0F2A44] text-white shadow-lg"
+                    : "glass-card text-slate-700"
+                }`}
+              >
+                {item.icon}
+                {item.name}
+              </button>
+            ))}
+          </div>
+
+          {/* SERVICE DETAIL */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={active.name}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.35 }}
+              className="grid overflow-hidden rounded-3xl glass-card lg:grid-cols-2"
+            >
+              <div className="p-6 sm:p-8 lg:p-12">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-2xl text-[#0F2A44]">
+                    {active.icon}
+                  </div>
+
+                  <h2 className="text-2xl font-bold sm:text-4xl">
+                    {active.name}
+                  </h2>
+                </div>
+
+                <p className="mt-6 leading-8 text-slate-600">
+                  {active.desc}
+                </p>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {active.features.map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 text-sm text-slate-700"
+                    >
+                      <span className="mt-2 h-2 w-2 rounded-full bg-[#1E88E5]" />
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="h-[280px] sm:h-[380px] lg:h-full">
+                <img
+                  src={active.img}
+                  alt={active.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* AMENITIES */}
+      <section className="bg-slate-50 px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Amenities We Provide
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-slate-600">
+              Every Monexa project comes with carefully curated modern lifestyle
+              amenities.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {amenities.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.03 }}
+                className="rounded-2xl glass-card p-6 text-center"
+              >
+                <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-2xl text-[#0F2A44]">
+                  {item.icon}
+                </div>
+
+                <h3 className="font-semibold">{item.title}</h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default Services;

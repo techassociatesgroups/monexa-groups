@@ -1,240 +1,207 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { FaChartLine, FaShieldAlt, FaChartBar, FaHourglassHalf, FaFilePdf, FaDownload, FaRegClock, FaBuilding } from 'react-icons/fa';
+﻿import React from 'react';
+import { ShieldCheck, TrendingUp, Clock, FileText, CheckCircle, AlertTriangle } from 'lucide-react';
 
-const InvestorRelations = () => {
-    const investReasons = [
-        { title: 'High Returns', icon: <FaChartLine />, desc: 'Real estate investments with Monexa groups have historically delivered 12-18% annual returns, outperforming traditional savings and fixed deposits.' },
-        { title: 'Secured Investment', icon: <FaShieldAlt />, desc: 'All investments are backed by tangible assets - land and property. Your capital is protected by physical value that appreciates over time.' },
-        { title: 'Portfolio Diversification', icon: <FaChartBar />, desc: 'Spread your investments across residential, commercial, and mixed-use projects in multiple countries for reduced risk.' },
-        { title: 'Flexible Tenure', icon: <FaHourglassHalf />, desc: 'Choose from short-term (1-3 years) to long-term (5-15 years) investment plans tailored to your financial goals.' }
-    ];
-
+const Investor = () => {
     return (
-        <div className="page-transition flex min-h-screen w-full flex-col items-center overflow-hidden bg-[var(--theme-card)] font-['Inter']">
-            <section className="w-full bg-[var(--theme-primary)] px-4 pb-16 pt-28 text-white sm:px-6 sm:pb-20 sm:pt-32 lg:px-8 lg:pt-20">
-                <div className="container mx-auto w-full max-w-4xl">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="mb-6 text-center text-3xl font-semibold text-white md:text-5xl lg:text-[3.5rem]"
-                    >
-                        Capital Growth & Transparency
-                    </motion.h1>
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
-                        className="mx-auto mb-8 h-0.5 w-10 bg-[var(--theme-accent)]"
-                    />
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.3 }}
-                        className="mx-auto max-w-3xl text-base leading-8 text-white/80 sm:text-lg"
-                    >
-                        <p className="mb-6">
-                            Investing with Monexa groups means aligning with a multinational conglomerate committed to unparalleled structural integrity and uncompromising financial yields. We operate on a foundation of trust, executing massive architectural paradigms that guarantee long-term appreciation.
-                        </p>
-                    </motion.div>
+        <div className="pt-0 bg-gray-50 min-h-screen">
+            {/* Hero Section */}
+            <section className="bg-[#0F2A44] text-white py-20 px-4 md:px-8">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6">Invest With Us – High Growth Real Estate Opportunities</h1>
+                    <p className="text-lg md:text-xl text-gray-300">
+                        Build Wealth Through Real Estate Investments. We offer structured investment opportunities in construction and real estate projects with strong growth potential, transparent documentation, and secured agreements.
+                    </p>
                 </div>
             </section>
 
-            <section className="w-full bg-[var(--theme-card)] px-4 py-20 md:px-8 lg:py-24">
-                <div className="container mx-auto w-full max-w-full">
-                    <div className="mb-20 w-full text-center">
-                        <h2 className="mb-6 font-['Outfit'] text-4xl font-semibold break-words text-[var(--theme-primary)]">Why Invest With Us?</h2>
-                        <p className="mx-auto max-w-3xl break-words text-lg leading-relaxed text-[var(--theme-text-muted)]">
-                            Real estate remains one of the safest and most rewarding asset classes. Here is why Monexa groups is your ideal investment partner.
-                        </p>
-                    </div>
-
-                    <div className="mx-auto grid w-full max-w-5xl grid-cols-1 gap-12 md:grid-cols-2">
-                        {investReasons.map((item, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                className="flex w-full max-w-full flex-col gap-6 sm:flex-row"
-                            >
-                                <div className="flex h-[60px] w-[60px] min-w-[60px] flex-shrink-0 items-center justify-center rounded-xl bg-slate-100 text-2xl text-[var(--theme-primary)]">
-                                    {item.icon}
-                                </div>
-                                <div className="max-w-full overflow-hidden">
-                                    <h3 className="mb-3 font-['Outfit'] text-xl font-semibold break-words text-[var(--theme-text-main)]">{item.title}</h3>
-                                    <p className="break-words text-base leading-relaxed text-[var(--theme-text-muted)]">{item.desc}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
+            {/* Investment Plans */}
+            <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl font-bold text-[#0F2A44] mb-4">Investment Plans</h2>
+                    <p className="text-gray-600 max-w-2xl mx-auto">
+                        Explore our project-based investment plans with strong target returns.
+                    </p>
                 </div>
-            </section>
 
-            <section className="w-full bg-[var(--theme-card)] px-4 pb-24 pt-8 md:px-8 md:pt-16 md:pb-32">
-                <div className="container mx-auto w-full max-w-5xl">
-                    <div className="grid w-full grid-cols-1 gap-12 md:grid-cols-2">
-                        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="flex w-full flex-col gap-8 overflow-hidden rounded-xl border border-slate-100 bg-white p-8 shadow-[0_8px_30px_rgba(0,0,50,0.06)] md:p-14">
-                            <div className="w-full">
-                                <div className="mb-8 h-1 w-10 rounded-sm bg-[#1A56A6]" />
-                                <h3 className="font-['Outfit'] text-2xl font-bold break-words text-slate-900">Plan A - Short Term Investment</h3>
-                            </div>
-                            <div className="flex w-full flex-col gap-7 overflow-hidden">
-                                <div className="flex max-w-full items-start gap-4 break-words">
-                                    <FaRegClock className="mt-1 text-lg text-[#1A56A6]" />
-                                    <div className="max-w-full overflow-hidden">
-                                        <div className="mb-1 text-sm leading-none text-slate-500">Duration</div>
-                                        <div className="text-lg font-semibold break-words text-slate-900">Less than 12 months</div>
-                                    </div>
-                                </div>
-                                <div className="flex max-w-full items-start gap-4 break-words">
-                                    <FaChartLine className="mt-1 text-lg text-[#1A56A6]" />
-                                    <div className="max-w-full overflow-hidden">
-                                        <div className="mb-1 text-sm leading-none text-slate-500">Expected Return*</div>
-                                        <div className="text-lg font-semibold break-words text-slate-900">Up to 12% per annum</div>
-                                    </div>
-                                </div>
-                                <div className="flex max-w-full items-start gap-4 break-words">
-                                    <FaBuilding className="mt-1 text-lg text-[#1A56A6]" />
-                                    <div className="max-w-full overflow-hidden">
-                                        <div className="mb-1 text-sm leading-none text-slate-500">Suitable For</div>
-                                        <div className="text-lg font-semibold break-words text-slate-900">Short-term investors</div>
-                                    </div>
+                <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                    {/* Plan A */}
+                    <div className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-[#1E88E5] hover:shadow-xl transition-shadow">
+                        <h3 className="text-2xl font-bold text-[#0F2A44] mb-6">Plan A – Short Term Investment</h3>
+                        <div className="space-y-4">
+                            <div className="flex items-start">
+                                <Clock className="text-[#1E88E5] mr-3 mt-1" size={20} />
+                                <div>
+                                    <p className="font-semibold text-gray-800">Duration</p>
+                                    <p className="text-gray-600">Less than 12 months</p>
                                 </div>
                             </div>
-                            <div className="mt-6 w-full break-words text-xs italic text-slate-400">
-                                *Returns are target/expected and subject to project performance.
-                            </div>
-                        </motion.div>
-
-                        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="flex w-full flex-col gap-8 overflow-hidden rounded-xl border border-slate-100 bg-white p-8 shadow-[0_8px_30px_rgba(0,0,50,0.06)] md:p-14">
-                            <div className="w-full">
-                                <div className="mb-8 h-1 w-10 rounded-sm bg-[#1A56A6]" />
-                                <h3 className="font-['Outfit'] text-2xl font-bold break-words text-slate-900">Plan B - Long Term Investment</h3>
-                            </div>
-                            <div className="flex w-full flex-col gap-7 overflow-hidden">
-                                <div className="flex max-w-full items-start gap-4 break-words">
-                                    <FaRegClock className="mt-1 text-lg text-[#1A56A6]" />
-                                    <div className="max-w-full overflow-hidden">
-                                        <div className="mb-1 text-sm leading-none text-slate-500">Duration</div>
-                                        <div className="text-lg font-semibold break-words text-slate-900">24 months and above</div>
-                                    </div>
-                                </div>
-                                <div className="flex max-w-full items-start gap-4 break-words">
-                                    <FaChartLine className="mt-1 text-lg text-[#1A56A6]" />
-                                    <div className="max-w-full overflow-hidden">
-                                        <div className="mb-1 text-sm leading-none text-slate-500">Expected Return*</div>
-                                        <div className="text-lg font-semibold break-words text-slate-900">Up to 24% per annum</div>
-                                    </div>
-                                </div>
-                                <div className="flex max-w-full items-start gap-4 break-words">
-                                    <FaBuilding className="mt-1 text-lg text-[#1A56A6]" />
-                                    <div className="max-w-full overflow-hidden">
-                                        <div className="mb-1 text-sm leading-none text-slate-500">Suitable For</div>
-                                        <div className="text-lg font-semibold break-words text-slate-900">High-growth investors</div>
-                                    </div>
+                            <div className="flex items-start">
+                                <TrendingUp className="text-[#1E88E5] mr-3 mt-1" size={20} />
+                                <div>
+                                    <p className="font-semibold text-gray-800">Expected Return*</p>
+                                    <p className="text-gray-600">Up to 12% per annum</p>
                                 </div>
                             </div>
-                            <div className="mt-6 w-full break-words text-xs italic text-slate-400">
-                                *Returns are target/expected and subject to project performance.
+                            <div className="flex items-start">
+                                <CheckCircle className="text-[#1E88E5] mr-3 mt-1" size={20} />
+                                <div>
+                                    <p className="font-semibold text-gray-800">Suitable For</p>
+                                    <p className="text-gray-600">Short-term investors</p>
+                                </div>
                             </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            <section className="w-full bg-[var(--theme-card)] px-4 py-20 md:px-8 lg:py-24">
-                <div className="container mx-auto w-full">
-                    <div className="mb-20 w-full text-center">
-                        <h2 className="font-['Outfit'] text-4xl font-semibold break-words text-[var(--theme-primary)]">How to Get Started</h2>
-                    </div>
-
-                    <div className="grid w-full grid-cols-1 gap-8 text-center sm:grid-cols-2 lg:grid-cols-4">
-                        {[
-                            { step: '1', title: 'Enquire', desc: 'Contact us or fill the enquiry form' },
-                            { step: '2', title: 'Consult', desc: 'Meet our investment advisor' },
-                            { step: '3', title: 'Choose', desc: 'Select your preferred plan' },
-                            { step: '4', title: 'Invest', desc: 'Complete documentation and start earning' }
-                        ].map((item, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: idx * 0.1 }}
-                                className="flex w-full max-w-full flex-col items-center gap-6"
-                            >
-                                <div className="flex h-[50px] w-[50px] flex-shrink-0 items-center justify-center rounded-full bg-[var(--theme-primary)] text-xl font-bold text-white">
-                                    {item.step}
-                                </div>
-                                <div className="max-w-full overflow-hidden px-4">
-                                    <h3 className="mb-3 font-['Outfit'] text-xl font-bold break-words text-[var(--theme-text-main)]">{item.title}</h3>
-                                    <p className="break-words text-sm leading-relaxed text-[var(--theme-text-muted)]">{item.desc}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            <section className="w-full bg-[var(--theme-card)] px-4 py-12 md:px-8">
-                <div className="container mx-auto w-full max-w-4xl">
-                    <div className="mb-20 w-full text-center">
-                        <div className="mb-6 flex justify-center text-[var(--theme-primary)]">
-                            <FaFilePdf size={45} />
                         </div>
-                        <h2 className="mb-6 font-['Outfit'] text-4xl font-semibold break-words text-[var(--theme-primary)]">Investor Documents</h2>
-                        <p className="text-lg break-words text-[var(--theme-text-muted)]">Download detailed documents about our investment plans, features, and approach.</p>
+                        <p className="text-xs text-gray-400 mt-6 italic">*Returns are target/expected and subject to project performance.</p>
                     </div>
 
-                    <div className="flex w-full flex-col gap-6">
-                        {[{ title: 'Investment Overview Brochure', size: '2.4 MB', desc: 'Complete guide to investing with Monexa groups' }].map((doc, idx) => (
-                            <motion.div
-                                key={idx}
-                                initial={{ opacity: 0, y: 10 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                className="flex w-full max-w-full flex-col items-start justify-between gap-6 overflow-hidden rounded-xl border border-slate-200 p-8 transition-all duration-300 hover:border-[var(--theme-primary)] hover:shadow-[0_5px_20px_rgba(0,0,0,0.03)] md:flex-row md:items-center"
-                            >
-                                <div className="flex w-full max-w-full items-center gap-6 overflow-hidden">
-                                    <div className="flex h-[50px] w-[50px] min-w-[50px] flex-shrink-0 items-center justify-center rounded-lg bg-slate-100 text-[var(--theme-primary)]">
-                                        <FaFilePdf size={20} />
-                                    </div>
-                                    <div className="w-full overflow-hidden">
-                                        <h3 className="font-['Outfit'] text-lg font-semibold whitespace-normal break-words text-[var(--theme-text-main)]">{doc.title}</h3>
-                                        <p className="text-sm whitespace-normal break-words text-[var(--theme-text-muted)]">{doc.desc} &bull; {doc.size}</p>
-                                    </div>
+                    {/* Plan B */}
+                    <div className="bg-white p-8 rounded-2xl shadow-lg border-t-4 border-[#0F2A44] hover:shadow-xl transition-shadow">
+                        <h3 className="text-2xl font-bold text-[#0F2A44] mb-6">Plan B – Long Term Investment</h3>
+                        <div className="space-y-4">
+                            <div className="flex items-start">
+                                <Clock className="text-[#0F2A44] mr-3 mt-1" size={20} />
+                                <div>
+                                    <p className="font-semibold text-gray-800">Duration</p>
+                                    <p className="text-gray-600">24 months and above</p>
                                 </div>
-                                <button className="flex flex-shrink-0 items-center gap-2 border-none bg-none font-semibold text-[var(--theme-primary)]">
-                                    <span>Download</span> <FaDownload size={14} />
-                                </button>
-                            </motion.div>
-                        ))}
+                            </div>
+                            <div className="flex items-start">
+                                <TrendingUp className="text-[#0F2A44] mr-3 mt-1" size={20} />
+                                <div>
+                                    <p className="font-semibold text-gray-800">Expected Return*</p>
+                                    <p className="text-gray-600">Up to 24% per annum</p>
+                                </div>
+                            </div>
+                            <div className="flex items-start">
+                                <CheckCircle className="text-[#0F2A44] mr-3 mt-1" size={20} />
+                                <div>
+                                    <p className="font-semibold text-gray-800">Suitable For</p>
+                                    <p className="text-gray-600">High-growth investors</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p className="text-xs text-gray-400 mt-6 italic">*Returns are target/expected and subject to project performance.</p>
                     </div>
                 </div>
             </section>
 
-            <section className="w-full bg-[var(--theme-primary)] py-10 text-center">
-                <div className="container mx-auto w-full max-w-3xl px-4 md:px-8">
-                    <h2 className="mb-6 font-['Outfit'] text-4xl font-semibold break-words text-white md:text-5xl">Connect With Capital Management</h2>
-                    <p className="mb-12 text-lg break-words text-white/80">
-                        Our institutional advisory team is available for private consultations regarding capital deployment, portfolio diversification, and long-term yield strategies.
-                    </p>
-                    <button
-                        onClick={() => window.open('https://wa.me/6385303666?text=I%20would%20like%20to%20request%20a%20Private%20Consultation', '_blank')}
-                        className="max-w-full rounded-md border-none bg-white px-8 py-4 text-base font-semibold text-[var(--theme-primary)] transition-colors hover:bg-slate-50 md:px-12 md:py-5"
-                    >
-                        Request Private Consultation
+            {/* Security & Documentation */}
+            <section className="bg-white py-16 px-4 md:px-8">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                    <div className="md:w-1/2">
+                        <h2 className="text-3xl font-bold text-[#0F2A44] mb-6">Security & Documentation</h2>
+                        <p className="text-gray-600 mb-6">
+                            We ensure complete transparency and investor protection through rigorous documentation and legal safeguards.
+                        </p>
+                        <ul className="space-y-4">
+                            {[
+                                "Legally drafted Investment Agreement",
+                                "Signed documents from both parties",
+                                "Post-dated cheque (PDC) for security",
+                                "Project-based investment allocation",
+                                "Regular updates on project progress"
+                            ].map((item, index) => (
+                                <li key={index} className="flex items-center text-gray-700">
+                                    <ShieldCheck className="text-[#1E88E5] mr-3" size={20} />
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="md:w-1/2">
+                        <div className="bg-blue-50 p-8 rounded-2xl flex flex-col items-center text-center">
+                            <FileText size={64} className="text-[#0F2A44] mb-4" />
+                            <h3 className="text-xl font-bold text-[#0F2A44] mb-2">Fully Documented</h3>
+                            <p className="text-gray-600">Every investment is backed by legally binding agreements and transparent reporting.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Process & Why Invest (combined grid) */}
+            <section className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-16">
+                    {/* Why Invest With Us */}
+                    <div>
+                        <h2 className="text-3xl font-bold text-[#0F2A44] mb-8">Why Invest With Us</h2>
+                        <div className="space-y-6">
+                            {[
+                                { title: "High-growth real estate sector", desc: "Capitalize on rapidly appreciating property markets." },
+                                { title: "Experienced management team", desc: "Expert oversight of all project developments." },
+                                { title: "Transparent financial structure", desc: "Clear reporting and no hidden clauses." },
+                                { title: "Multiple ongoing projects", desc: "Diversified portfolio mitigating single-project reliance." },
+                                { title: "Strong ROI potential", desc: "Targeted strategies designed to maximize investor returns." }
+                            ].map((feature, idx) => (
+                                <div key={idx} className="flex">
+                                    <div className="flex-shrink-0 mr-4">
+                                        <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-[#1E88E5] font-bold">
+                                            {idx + 1}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-lg font-bold text-gray-800">{feature.title}</h4>
+                                        <p className="text-gray-600">{feature.desc}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Investment Process */}
+                    <div>
+                        <h2 className="text-3xl font-bold text-[#0F2A44] mb-8">Investment Process</h2>
+                        <div className="space-y-4 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+                            {[
+                                "Submit investor inquiry",
+                                "Receive project details",
+                                "Sign agreement",
+                                "Make investment",
+                                "Track project progress",
+                                "Receive returns as per agreement"
+                            ].map((step, idx) => (
+                                <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-[#0F2A44] text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                                        {idx + 1}
+                                    </div>
+                                    <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded border border-slate-200 bg-white shadow">
+                                        <div className="font-bold text-slate-900">{step}</div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Risk Disclosure */}
+            <section className="bg-red-50 py-12 px-4 md:px-8">
+                <div className="max-w-4xl mx-auto flex items-start">
+                    <AlertTriangle className="text-red-600 mr-4 flex-shrink-0 mt-1" size={28} />
+                    <div>
+                        <h3 className="text-xl font-bold text-red-800 mb-2">Risk Disclosure</h3>
+                        <p className="text-red-700">
+                            All investments are subject to market risks. Returns are based on project performance and are not guaranteed. Investors are advised to review all documents carefully before investing.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA */}
+            <section className="bg-[#0F2A44] text-white py-16 px-4 text-center">
+                <h2 className="text-3xl font-bold mb-6">Start Investing Today</h2>
+                <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Join our network of investors building wealth through structured, high-potential real estate opportunities.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                    <button className="bg-[#1E88E5] text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-600 transition-colors">
+                        Apply Now
                     </button>
-                    <p className="mt-8 break-words text-sm text-white/50">
-                        All inquiries are handled with strict confidentiality. Minimum investment thresholds apply.
-                    </p>
+                    <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-[#0F2A44] transition-colors">
+                        Download Investment Brochure
+                    </button>
                 </div>
             </section>
         </div>
     );
 };
 
-export default InvestorRelations;
+export default Investor;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
@@ -67,7 +67,7 @@ const Header = () => {
                     <div className="flex shrink-0 items-center justify-end gap-3">
                         <Link
                             to="/contact"
-                            className="hidden items-center justify-center whitespace-nowrap rounded-full bg-[#C5A059] px-8 py-3.5 text-sm font-bold uppercase tracking-[0.18em] text-white no-underline transition-colors duration-300 hover:bg-slate-900 lg:inline-flex xl:px-10"
+                            className="hidden items-center justify-center whitespace-nowrap rounded-full bg-[#C5A059] px-8 py-4.5 text-sm font-bold uppercase tracking-[0.18em] text-white no-underline transition-colors duration-300 hover:bg-slate-900 lg:inline-flex xl:px-10"
                         >
                             Contact
                         </Link>
