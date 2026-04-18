@@ -126,8 +126,8 @@ const Home = () => {
 
                         {/* SPACING FIX: Added margin here */}
                         <div className="hero-projects-btn" style={{ marginBottom: '2rem' }}>
-                            <Link to="/projects" className="btn" style={{ padding: '1.2rem 3rem', backgroundColor: '#C5A059', color: 'white', display: 'inline-flex', alignItems: 'center', gap: '15px', textDecoration: 'none', fontWeight: 600 }}>
-                                VIEW PROJECTS <FaChevronRight size={12} />
+                            <Link to="/India" className="btn" style={{ padding: '1.2rem 3rem', backgroundColor: '#C5A059', color: 'white', display: 'inline-flex', alignItems: 'center', gap: '15px', textDecoration: 'none', fontWeight: 600 }}>
+                                VIEW PROPERTIES <FaChevronRight size={12} />
                             </Link>
                         </div>
 
@@ -146,9 +146,26 @@ const Home = () => {
                                 {slides.map((s, idx) => (
                                     <span key={s.id} onClick={() => setCurrentSlide(idx)} style={{ cursor: 'pointer', opacity: currentSlide === idx ? 1 : 0.3, borderBottom: currentSlide === idx ? '2px solid white' : 'none', fontWeight: 600 }}>{s.id}</span>
                                 ))}
-                                <button onClick={handleNext} style={{ width: '40px', height: '40px', borderRadius: '50%', border: '1px solid white', background: 'transparent', color: 'white', cursor: 'pointer' }}>
+                                <button
+                                    onClick={handleNext}
+                                    style={{
+                                        width: '40px',
+                                        height: '40px',
+                                        borderRadius: '50%',
+                                        border: '1px solid white',
+                                        background: 'transparent',
+                                        color: 'white',
+                                        cursor: 'pointer',
+                                        /* ADD THESE FOUR LINES BELOW */
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        padding: 0
+                                    }}
+                                >
                                     <FaArrowRight />
                                 </button>
+
                             </div>
                         </div>
                     </div>

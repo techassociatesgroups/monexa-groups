@@ -1,22 +1,16 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 :root {
   --theme-primary: #223148;
-  /* Premium Professional Blue */
   --theme-secondary: #1f3251;
   --theme-accent: #5e6d85;
-  --theme-bg: #FFFFFF;
-  /* Clean White Background */
+  --theme-bg: #ffffff;
   --theme-card: #ffffff;
-  /* Elevated Black */
-  --theme-text-main: #0A0A0A;
-  /* Dark Text */
-  --theme-text-muted: #A3A3A3;
-  /* Subtle Grey */
-  --theme-text-inverse: #FFFFFF;
-  /* White on Blue */
+  --theme-text-main: #0a0a0a;
+  --theme-text-muted: #a3a3a3;
+  --theme-text-inverse: #ffffff;
 }
 
 * {
@@ -25,12 +19,21 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Outfit', sans-serif;
   background-color: var(--theme-bg);
   color: var(--theme-text-main);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 h1,
@@ -48,11 +51,40 @@ a {
   text-decoration: none;
 }
 
+.app {
+  min-height: 100vh;
+}
+
+.main-content {
+  min-height: calc(100vh - 92px);
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.site-shell {
+  width: min(100% - 2rem, 1280px);
+  margin: 0 auto;
+}
+
+.property-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .property-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .property-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .glass-panel {
@@ -75,7 +107,7 @@ a {
   gap: 2rem;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .grid-2 {
     grid-template-columns: 1fr 1fr;
   }
@@ -87,13 +119,13 @@ a {
   gap: 2rem;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .grid-3 {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -105,13 +137,13 @@ a {
   gap: 2rem;
 }
 
-@media(min-width: 640px) {
+@media (min-width: 640px) {
   .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .grid-4 {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -168,7 +200,6 @@ a {
   border: 1px solid rgba(0, 102, 255, 0.4);
 }
 
-/* Page Transitions Wrapper */
 .page-transition {
   animation: fadeIn 0.8s ease-in-out;
 }
@@ -185,10 +216,13 @@ a {
   }
 }
 
-/* --- UNIVERSAL MOBILE RESPONSIVENESS INJECT --- */
 @media (max-width: 768px) {
   .container {
     padding: 0 15px !important;
+  }
+
+  .site-shell {
+    width: min(100% - 1.5rem, 1280px);
   }
 
   h1 {
@@ -205,9 +239,11 @@ a {
     align-items: flex-start !important;
     gap: 2.5rem !important;
   }
+}
 
-  .footer-container {
-    margin-top: -60px !important;
+@media (max-width: 640px) {
+  .main-content {
+    min-height: calc(100vh - 84px);
   }
 }
 
@@ -218,51 +254,5 @@ a {
 
   h2 {
     font-size: 1.8rem !important;
-  }
-
-  header nav a {
-    font-size: 0.8rem !important;
-  }
-}
-
-/* Header Response Styles (Standalone) */
-@media (max-width: 992px) {
-  .mobile-menu-icon {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
-
-  .nav-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--theme-bg);
-    flex-direction: column;
-    align-items: flex-start !important;
-    /* Added top padding to prevent header clipping */
-    padding: 3rem 2rem 2rem 2rem;
-    gap: 1.5rem !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    display: none !important;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-  }
-
-  .nav-menu.active {
-    display: flex !important;
-  }
-
-  .nav-menu a {
-    color: var(--theme-text-main) !important;
-    width: 100%;
-  }
-
-  .contact-btn {
-    color: var(--theme-text-inverse) !important;
-    background-color: var(--theme-primary) !important;
-    border: none !important;
-    justify-content: center;
   }
 }

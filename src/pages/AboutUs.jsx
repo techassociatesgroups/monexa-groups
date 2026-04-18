@@ -10,7 +10,7 @@ const AboutUs = () => {
             {/* HERO SECTION */}
             <section style={{
                 backgroundColor: 'var(--theme-primary)',
-                padding: '10rem 2rem 6rem 2rem',
+                padding: '6rem 2rem 6rem 2rem',
                 textAlign: 'center',
                 color: 'white'
             }}>

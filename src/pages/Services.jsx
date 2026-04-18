@@ -75,7 +75,7 @@ const Services = () => {
         <div className="page-transition" style={{ backgroundColor: 'var(--theme-card)', minHeight: '100vh', fontFamily: 'Inter, sans-serif' }}>
 
             {/* HERO SECTION */}
-            <section style={{ backgroundColor: 'var(--theme-primary)', color: 'white', padding: '10rem 2rem 6rem 2rem', textAlign: 'center' }}>
+            <section style={{ backgroundColor: 'var(--theme-primary)', color: 'white', padding: '6rem 2rem 6rem 2rem', textAlign: 'center' }}>
                 <div className="container">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}

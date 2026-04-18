@@ -1,61 +1,26 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Footer = () => {
     return (
-        <footer style={{ backgroundColor: 'var(--theme-bg)', position: 'relative', overflow: 'hidden' }}>
+        <footer className="relative overflow-hidden bg-[var(--theme-bg)]">
+            <div className="relative flex min-h-[420px] items-center justify-center px-4 py-20 text-center sm:min-h-[520px]">
+                <div
+                    className="absolute inset-0 z-[1] bg-cover bg-center brightness-[0.35]"
+                    style={{ backgroundImage: 'url("/images/monexa ventures 1.jpg")' }}
+                />
 
-            {/* TOP CTA SECTION - Parallax Backdrop */}
-            <div style={{
-                height: '600px',
-                position: 'relative',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                textAlign: 'center',
-                padding: '0 2rem'
-            }}>
-                <div style={{
-                    position: 'absolute',
-                    top: 0, left: 0, width: '100%', height: '100%',
-                    backgroundImage: 'url("/images/monexa ventures 1.jpg")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'brightness(0.4)',
-                    zIndex: 1
-                }} />
-
-                {/* Large Background Watermark */}
-                <div style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    fontSize: '15vw',
-                    fontWeight: 900,
-                    color: 'rgba(255,255,255,0.05)',
-                    whiteSpace: 'nowrap',
-                    zIndex: 2,
-                    textTransform: 'lowercase',
-                    fontFamily: 'Outfit, sans-serif'
-                }}>
+                <div className="absolute left-1/2 top-1/2 z-[2] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap text-[20vw] font-black lowercase leading-none text-white/5 sm:text-[15vw]">
                     monexa
                 </div>
 
-                <div style={{ position: 'relative', zIndex: 3 }}>
+                <div className="relative z-[3] mx-auto max-w-4xl">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        style={{
-                            fontSize: '4.5rem',
-                            color: 'white',
-                            marginBottom: '1.5rem',
-                            fontFamily: 'Outfit, sans-serif',
-                            fontWeight: 600
-                        }}
+                        className="mb-6 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-7xl"
                     >
                         Your dream home awaits
                     </motion.h2>
@@ -64,66 +29,39 @@ const Footer = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        style={{
-                            fontSize: '1.2rem',
-                            color: 'rgba(255,255,255,0.8)',
-                            maxWidth: '700px',
-                            margin: '0 auto 3rem auto',
-                            lineHeight: 1.8
-                        }}
+                        className="mx-auto mb-10 max-w-2xl text-base leading-8 text-white/80 sm:text-lg"
                     >
-                        Whether you're exploring our homes or envisioning something custom, <br />
-                        we're here to bring your dream to life.
+                        Whether you&apos;re exploring our homes or envisioning something custom,
+                        <br className="hidden sm:block" />
+                        we&apos;re here to bring your dream to life.
                     </motion.p>
 
                     <motion.a
                         href="https://wa.me/6385303666?text=I%20would%20like%20to%20get%20a%20free%20quote"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{ scale: 1.1, backgroundColor: 'var(--theme-accent)', color: 'var(--theme-text-inverse)' }}
-                        style={{
-                            width: '160px',
-                            height: '160px',
-                            borderRadius: '50%',
-                            backgroundColor: 'rgba(0,0,0,0.6)',
-                            backdropFilter: 'blur(10px)',
-                            border: '1px solid var(--theme-accent)',
-                            color: 'var(--theme-accent)',
-                            fontSize: '1.1rem',
-                            fontWeight: 500,
-                            cursor: 'pointer',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            textAlign: 'center',
-                            padding: '1rem',
-                            transition: 'all 0.4s ease',
-                            textDecoration: 'none'
-                        }}
+                        whileHover={{ scale: 1.08, backgroundColor: 'var(--theme-accent)', color: 'var(--theme-text-inverse)' }}
+                        className="mx-auto flex h-28 w-28 items-center justify-center rounded-full border border-[var(--theme-accent)] bg-black/60 p-4 text-center text-sm font-semibold text-[var(--theme-accent)] no-underline backdrop-blur-md transition-all duration-300 sm:h-40 sm:w-40 sm:text-lg"
                     >
                         Get your <br /> free quote
                     </motion.a>
                 </div>
             </div>
 
-            {/* FLOATING FOOTER BOX */}
-            <div className="container mx-auto px-4 relative z-10 -mt-24 md:-mt-32 pb-20">
-                <div className="bg-white rounded-[32px] md:rounded-[48px] p-8 md:p-16 shadow-2xl border border-gray-100 flex flex-col lg:flex-row gap-12 lg:gap-24">
-
-                    {/* Brand Info */}
-                    <div className="lg:w-1/3 space-y-6">
-                        <Link to="/" className="inline-block group">
-                            <h2 className="text-3xl font-bold tracking-tight text-gray-900 font-['Outfit']">
-                                monexa<span className="text-[#C5A059] ml-1">groups</span>
+            <div className="site-shell relative z-10 -mt-10 px-3 pb-14 sm:-mt-16 sm:px-4 sm:pb-16 lg:-mt-24 lg:px-6">
+                <div className="flex flex-col gap-10 rounded-[28px] border border-slate-200 bg-white p-7 shadow-2xl sm:rounded-[40px] sm:p-10 lg:flex-row lg:gap-16 lg:p-14">
+                    <div className="space-y-6 lg:w-[32%]">
+                        <Link to="/" className="inline-block no-underline">
+                            <h2 className="font-['Outfit'] text-3xl font-bold tracking-tight text-gray-900">
+                                monexa<span className="ml-1 text-[#C5A059]">groups</span>
                             </h2>
                         </Link>
-                        <p className="text-gray-500 text-lg leading-relaxed max-w-sm">
+                        <p className="max-w-sm text-lg leading-relaxed text-gray-500">
                             We are creators of transformative spaces that inspire, innovate, and endure. Built on a legacy of structural excellence.
                         </p>
                     </div>
 
-                    {/* Links Grid */}
-                    <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-12">
+                    <div className="grid flex-1 grid-cols-1 gap-10 sm:grid-cols-2">
                         <div className="space-y-6">
                             <h4 className="text-sm font-bold uppercase tracking-widest text-[#C5A059]">Company</h4>
                             <ul className="space-y-4">
@@ -133,9 +71,9 @@ const Footer = () => {
                                     { name: 'Investor Relations', path: '/invest' },
                                     { name: 'EMI Calculator', path: '/emi-calculator' },
                                     { name: 'Contact Us', path: '/contact' }
-                                ].map(item => (
+                                ].map((item) => (
                                     <li key={item.name}>
-                                        <Link to={item.path} className="text-gray-600 hover:text-[#C5A059] transition-colors text-base font-medium no-underline flex items-center gap-2">
+                                        <Link to={item.path} className="flex items-center gap-2 text-base font-medium text-gray-600 no-underline transition-colors hover:text-[#C5A059]">
                                             {item.name}
                                         </Link>
                                     </li>
@@ -150,9 +88,9 @@ const Footer = () => {
                                     { name: 'Malaysia Projects', path: '/Malaysia' },
                                     { name: 'Dubai Operations', path: '/commercial' },
                                     { name: 'Singapore Portfolio', path: '/upcoming' }
-                                ].map(item => (
+                                ].map((item) => (
                                     <li key={item.name}>
-                                        <Link to={item.path} className="text-gray-600 hover:text-[#C5A059] transition-colors text-base font-medium no-underline">
+                                        <Link to={item.path} className="text-base font-medium text-gray-600 no-underline transition-colors hover:text-[#C5A059]">
                                             {item.name}
                                         </Link>
                                     </li>
@@ -161,42 +99,31 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Contact Info */}
-                    <div className="lg:w-1/4 space-y-8">
+                    <div className="space-y-8 lg:w-[24%]">
                         <div className="space-y-2">
-                            <h4 className="text-sm font-bold uppercase tracking-widest text-[#C5A059] mb-4">Get In Touch</h4>
-                            <a href="tel:6385303666" className="text-2xl font-bold text-gray-900 block no-underline hover:text-[#C5A059] transition-colors">6385303666</a>
-                            <a href="mailto:monexa@example.com" className="text-gray-500 hover:text-gray-900 transition-colors text-lg inline-block border-b border-gray-200 pb-1 no-underline">
+                            <h4 className="mb-4 text-sm font-bold uppercase tracking-widest text-[#C5A059]">Get In Touch</h4>
+                            <a href="tel:6385303666" className="block text-2xl font-bold text-gray-900 no-underline transition-colors hover:text-[#C5A059]">6385303666</a>
+                            <a href="mailto:monexa@example.com" className="inline-block border-b border-gray-200 pb-1 text-lg text-gray-500 no-underline transition-colors hover:text-gray-900">
                                 monexa@example.com
                             </a>
                         </div>
 
-                        {/* Social Links */}
-                        <div className="flex flex-wrap gap-6 items-center pt-4">
-                            {['Facebook', 'Instagram', 'Youtube', 'Twitter'].map(s => (
-                                <Link key={s} to="#" className="text-gray-400 hover:text-[#C5A059] transition-all transform hover:scale-110 text-sm font-semibold no-underline uppercase tracking-wider">
-                                    {s}
+                        <div className="flex flex-wrap items-center gap-6 pt-4">
+                            {['Facebook', 'Instagram', 'Youtube', 'Twitter'].map((social) => (
+                                <Link key={social} to="#" className="text-sm font-semibold uppercase tracking-wider text-gray-400 no-underline transition-all hover:scale-110 hover:text-[#C5A059]">
+                                    {social}
                                 </Link>
                             ))}
                         </div>
                     </div>
                 </div>
 
-                {/* Bottom Rights */}
-                <div style={{
-                    textAlign: 'center',
-                    padding: '3rem 0 0 0',
-                    color: 'rgba(255,255,255,0.4)',
-                    fontSize: '0.9rem',
-                    letterSpacing: '1px'
-                }}>
-                    Â© {new Date().getFullYear()} <span style={{ color: 'white' }}>Monexa</span>. All Rights Reserved.
+                <div className="px-4 pt-10 text-center text-sm tracking-[0.18em] text-slate-500 sm:pt-12">
+                    &copy; {new Date().getFullYear()} <span className="font-semibold text-slate-900">Monexa</span>. All Rights Reserved.
                 </div>
             </div>
-
         </footer>
     );
 };
 
 export default Footer;
-
