@@ -47,9 +47,9 @@ const Footer = () => {
             whileHover={{ scale: 1.06 }}
             className="mx-auto mt-10 flex h-28 w-28 items-center justify-center rounded-full bg-[#C5A059] text-center text-sm font-semibold text-white shadow-2xl sm:h-36 sm:w-36"
           >
-            Get your
+            Connect
             <br />
-            free quote
+            With Us
           </motion.a>
         </div>
       </section>
