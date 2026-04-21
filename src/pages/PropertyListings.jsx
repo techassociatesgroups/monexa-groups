@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -88,7 +88,7 @@ const PropertyListings = () => {
                             style={{
                                 background: 'none',
                                 border: 'none',
-                                color: activeType === type ? '#1e293b' : '#94a3b8',
+                                color: activeType === type ? '#1e293b' : '#494a4bff',
                                 fontSize: '0.9rem',
                                 fontWeight: activeType === type ? 700 : 500,
                                 whiteSpace: 'nowrap',
@@ -105,7 +105,14 @@ const PropertyListings = () => {
                     ))}
                 </div>
 
-                <div className="property-grid" style={{ display: 'grid', gap: '2rem' }}>
+                <div
+  className="property-grid"
+                    style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                        gap: '2rem'
+                    }}
+                >
                     <AnimatePresence mode="popLayout">
                         {filteredProperties.map((property) => (
                             <motion.div
