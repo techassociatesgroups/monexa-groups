@@ -60,7 +60,7 @@ const InvestEnquiry = () => {
                         <form action="https://api.web3forms.com/submit" method="POST" style={{ display: 'grid', gap: '1.5rem' }}>
                             <input type="hidden" name="access_key" value={web3FormsKey || ''} />
                             <input type="hidden" name="subject" value="Monexa Investment Inquiry" />
-                            <input type="hidden" name="redirect" value={`${window.location.origin}/thank-you`} />
+                            <input type="hidden" name="redirect" value={`${window.location.origin}/`} />
 
                             {/* Hidden Metata Segment for Sales Team */}
                             <input type="hidden" name="planType" value={planDetails.planType} />

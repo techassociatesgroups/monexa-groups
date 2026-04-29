@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
 
 const ContactUs = () => {
@@ -39,7 +39,7 @@ const ContactUs = () => {
                         <form action="https://api.web3forms.com/submit" method="POST" className="flex flex-col gap-6">
                             <input type="hidden" name="access_key" value={web3FormsKey || ''} />
                             <input type="hidden" name="subject" value="Monexa Contact Inquiry" />
-                            <input type="hidden" name="redirect" value={`${window.location.origin}/thank-you`} />
+                            <input type="hidden" name="redirect" value={`${window.location.origin}/contact`} />
 
                             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                 <div className="space-y-2">
