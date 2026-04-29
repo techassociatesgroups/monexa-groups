@@ -37,11 +37,14 @@ const InvestEnquiry = () => {
 
     return (
         <div style={{ backgroundColor: 'var(--theme-bg)', paddingBottom: '5rem' }}>
-            <div style={{ backgroundColor: 'var(--theme-primary)', color: 'white', padding: '4rem 0', textAlign: 'center' }}>
+
+
+
+            <div style={{ backgroundColor: 'var(--theme-primary)', padding: '4rem 0', textAlign: 'center' }}>
                 <div className="container">
-                    <h1 style={{ color: 'white' }}>Investor Registration</h1>
-                    <p style={{ maxWidth: '600px', margin: '1rem auto 0', color: '#ccc', fontSize: '1.2rem' }}>
-                        Enquiring for: <strong style={{ color: 'var(--theme-accent)' }}>{planDetails.planName}</strong> with <strong style={{ color: 'var(--theme-accent)' }}>{planDetails.targetReturn}</strong> Expected Return
+                    <h1>Investor Registration</h1>
+                    <p style={{ maxWidth: '600px', margin: '1rem auto 0', color: 'grey', fontSize: '1.2rem' }}>
+                        Enquiring for: <strong style={{ color: 'rgba(10, 36, 63, 0.9)' }}>{planDetails.planName}</strong> with <strong style={{ color: 'rgba(10, 36, 63, 0.9)' }}>{planDetails.targetReturn}</strong> Expected Return
                     </p>
                 </div>
             </div>
@@ -55,10 +58,10 @@ const InvestEnquiry = () => {
                         style={{ maxWidth: '700px', margin: '0 auto', padding: '3rem', backgroundColor: 'white' }}
                     >
                         <form action="https://api.web3forms.com/submit" method="POST" style={{ display: 'grid', gap: '1.5rem' }}>
-                            {web3FormsKey ? <input type="hidden" name="access_key" value={web3FormsKey} /> : null}
+                            <input type="hidden" name="access_key" value={web3FormsKey || ''} />
                             <input type="hidden" name="subject" value="Monexa Investment Inquiry" />
                             <input type="hidden" name="redirect" value={`${window.location.origin}/thank-you`} />
-                            
+
                             {/* Hidden Metata Segment for Sales Team */}
                             <input type="hidden" name="planType" value={planDetails.planType} />
 
@@ -104,12 +107,14 @@ const InvestEnquiry = () => {
                                 </p>
                             </div>
 
-                            <button 
-                                className="btn btn-primary" 
-                                type="submit" 
-                                style={{ 
-                                    padding: '1rem', 
-                                    fontSize: '1.1rem', 
+                            <button
+                                className="btn btn-primary"
+                                type="submit"
+                                style={{
+                                    padding: '1rem',
+                                    fontSize: '1.1rem',
+                                    backgroundColor: 'rgba(10, 36, 63, 0.9)',
+                                    color: 'white',
                                     marginTop: '1rem'
                                 }}
                             >

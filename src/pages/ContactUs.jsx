@@ -37,7 +37,7 @@ const ContactUs = () => {
                         <h2 className="mb-8 text-2xl font-bold tracking-tight text-slate-800">Direct Inquiry</h2>
 
                         <form action="https://api.web3forms.com/submit" method="POST" className="flex flex-col gap-6">
-                            {web3FormsKey ? <input type="hidden" name="access_key" value={web3FormsKey} /> : null}
+                            <input type="hidden" name="access_key" value={web3FormsKey || ''} />
                             <input type="hidden" name="subject" value="Monexa Contact Inquiry" />
                             <input type="hidden" name="redirect" value={`${window.location.origin}/thank-you`} />
 
