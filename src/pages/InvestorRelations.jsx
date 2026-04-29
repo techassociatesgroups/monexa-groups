@@ -1,4 +1,5 @@
-﻿import React from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { ShieldCheck, TrendingUp, Clock, FileText, CheckCircle, AlertTriangle } from 'lucide-react';
 
 const Investor = () => {
@@ -192,9 +193,9 @@ const Investor = () => {
                     Join our network of investors building wealth through structured, high-potential real estate opportunities.
                 </p>
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
-                    <button className="bg-[#1E88E5] text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-600 transition-colors">
+                    <Link to="/invest/enquiry" className="bg-[#1E88E5] text-white px-8 py-4 rounded-lg font-bold hover:bg-blue-600 transition-colors inline-block">
                         Apply Now
-                    </button>
+                    </Link>
                     <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-bold hover:bg-white hover:text-[#0F2A44] transition-colors">
                         Download Investment Brochure
                     </button>

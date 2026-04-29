@@ -1,10 +1,9 @@
-﻿import React, { useState, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const InvestEnquiry = () => {
     const location = useLocation();
-    const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
 
     // default states if directly accessed
@@ -14,6 +13,8 @@ const InvestEnquiry = () => {
         planType: "GENERAL_INQUIRY"
     };
 
+    const web3FormsKey = import.meta.env.VITE_WEB3FORMS_KEY;
+
     useEffect(() => {
         // Simulate luxury loader transition mapped to the requirements
         const timer = setTimeout(() => {
@@ -21,12 +22,6 @@ const InvestEnquiry = () => {
         }, 800);
         return () => clearTimeout(timer);
     }, []);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // In production, an API call mapping the hidden input (planType) goes here
-        navigate('/thank-you');
-    };
 
     if (loading) {
         return (
@@ -59,35 +54,39 @@ const InvestEnquiry = () => {
                         className="glass-card"
                         style={{ maxWidth: '700px', margin: '0 auto', padding: '3rem', backgroundColor: 'white' }}
                     >
-                        <form onSubmit={handleSubmit} style={{ display: 'grid', gap: '1.5rem' }}>
+                        <form action="https://api.web3forms.com/submit" method="POST" style={{ display: 'grid', gap: '1.5rem' }}>
+                            {web3FormsKey ? <input type="hidden" name="access_key" value={web3FormsKey} /> : null}
+                            <input type="hidden" name="subject" value="Monexa Investment Inquiry" />
+                            <input type="hidden" name="redirect" value={`${window.location.origin}/thank-you`} />
+                            
                             {/* Hidden Metata Segment for Sales Team */}
                             <input type="hidden" name="planType" value={planDetails.planType} />
 
                             <div className="grid-2" style={{ gap: '1rem' }}>
                                 <div>
                                     <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>First Name</label>
-                                    <input type="text" required style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px' }} />
+                                    <input type="text" name="First Name" required style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px' }} />
                                 </div>
                                 <div>
                                     <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Last Name</label>
-                                    <input type="text" style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px' }} />
+                                    <input type="text" name="Last Name" required style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px' }} />
                                 </div>
                             </div>
 
                             <div className="grid-2" style={{ gap: '1rem' }}>
                                 <div>
                                     <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Email Address</label>
-                                    <input type="email" required style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px' }} />
+                                    <input type="email" name="Email" required style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px' }} />
                                 </div>
                                 <div>
                                     <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Phone Number</label>
-                                    <input type="tel" required style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px' }} />
+                                    <input type="tel" name="Phone Number" required style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px' }} />
                                 </div>
                             </div>
 
                             <div>
                                 <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Investment Horizon</label>
-                                <select style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px', fontFamily: 'inherit' }}>
+                                <select name="Investment Horizon" style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px', fontFamily: 'inherit' }}>
                                     <option>Less than 1 Year (Plan A Focus)</option>
                                     <option>1 - 2 Years</option>
                                     <option>More than 2 Years (Plan B Focus)</option>
@@ -96,7 +95,7 @@ const InvestEnquiry = () => {
 
                             <div>
                                 <label style={{ display: 'block', marginBottom: '0.5rem', fontWeight: 600 }}>Additional Comments / Source of Funds</label>
-                                <textarea rows="4" style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px', fontFamily: 'inherit' }}></textarea>
+                                <textarea name="Additional Comments" rows="4" style={{ width: '100%', padding: '0.75rem', border: '1px solid #ccc', borderRadius: '4px', fontFamily: 'inherit' }}></textarea>
                             </div>
 
                             <div style={{ backgroundColor: '#fffbe6', padding: '1rem', borderLeft: '4px solid var(--theme-accent)', borderRadius: '4px' }}>
@@ -105,7 +104,17 @@ const InvestEnquiry = () => {
                                 </p>
                             </div>
 
-                            <button className="btn btn-primary" type="submit" style={{ padding: '1rem', fontSize: '1.1rem', marginTop: '1rem' }}>Complete Registration</button>
+                            <button 
+                                className="btn btn-primary" 
+                                type="submit" 
+                                style={{ 
+                                    padding: '1rem', 
+                                    fontSize: '1.1rem', 
+                                    marginTop: '1rem'
+                                }}
+                            >
+                                Complete Registration
+                            </button>
                         </form>
                     </motion.div>
                 </div>

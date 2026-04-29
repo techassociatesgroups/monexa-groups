@@ -95,7 +95,6 @@ const ContactUs = () => {
                                 <textarea
                                     id="message"
                                     name="message"
-                                    required
                                     rows={4}
                                     placeholder="Tell us about your project..."
                                     className="w-full resize-none rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-blue-500"
@@ -104,17 +103,10 @@ const ContactUs = () => {
 
                             <button
                                 type="submit"
-                                disabled={!web3FormsKey}
-                                className="w-full rounded-lg bg-[#1a2b3c] py-4 font-bold text-white shadow-lg transition-colors hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-400"
+                                className="w-full rounded-lg bg-[#1a2b3c] py-4 font-bold text-white shadow-lg transition-colors hover:bg-slate-800"
                             >
-                                {web3FormsKey ? 'Submit Inquiry' : 'Form Setup Required'}
+                                Submit Inquiry
                             </button>
-
-                            {!web3FormsKey ? (
-                                <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-                                    Add <code>VITE_WEB3FORMS_KEY</code> to the environment to enable form submissions.
-                                </p>
-                            ) : null}
                         </form>
                     </div>
 

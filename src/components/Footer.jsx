@@ -116,18 +116,18 @@ const Footer = () => {
               </a>
 
               <a
-                href="mailto:monexa@example.com"
+                href="mailto:info@monexagroups.in"
                 className="mt-3 block text-slate-500"
               >
-                monexa@example.com
+               info@monexagroups.in
               </a>
 
-              <div className="mt-6 flex gap-4 text-sm font-semibold text-slate-400">
+              {/* <div className="mt-6 flex gap-4 text-sm font-semibold text-slate-400">
                 <span>FB</span>
                 <span>IG</span>
                 <span>YT</span>
                 <span>X</span>
-              </div>
+              </div> */}
             </div>
           </div>
 
