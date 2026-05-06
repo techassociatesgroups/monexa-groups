@@ -1,30 +1,100 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const generateDummyData = () => {
     const data = [];
-    const photoIds = [
-        '1545324418-cc1a3fa10c00', '1512915922686-57c11dde9b6b', '1449844908441-8829872d2607', '1486406146926-c627a92ad1ab'
-    ];
+    const assetMap = {
+        India: {
+            Apartment: ['/assests/indian appartment 1.png', '/assests/indian appartment 2.jpg', '/assests/indian appartment 3.png'],
+            Villa: ['/assests/indian villa 1.png', '/assests/indian villa 2.jpg', '/assests/indian villa 4.jpg'],
+            House: ['/assests/indian house 1.png', '/assests/indian house 2.jpg', '/assests/indian house 3.png']
+        },
+        Malaysia: {
+            Apartment: ['/assests/malaysia appartment 1.jpg', '/assests/malaysia appartment 2.jpg'],
+            Villa: ['/assests/malaysia villa 1.jpg', '/assests/malaysia villa 2.jpg'],
+            House: ['/assests/malaysia house 1.jpg']
+        },
+        Singapore: {
+            Apartment: ['/assests/singapore appartmet 1.jpg', '/assests/singapore appartment 2.jpg'],
+            Villa: ['/assests/singapore villa 1.jpg', '/assests/singapore villa 2.jpg'],
+            House: ['/assests/singapore house 2.jpg']
+        },
+        Dubai: {
+            Apartment: ['/assests/dubai appartment 1.jpg', '/assests/dubai appartment 2.jpg'],
+            Villa: ['/assests/dubai villa 1.jpg', '/assests/dubai villa 2.jpg', '/assests/dubai villa 3.jpg'],
+            House: ['/assests/dubai house 1.jpg', '/assests/dubai house 2.jpg']
+        },
+        'Hong Kong': {
+            Apartment: ['/assests/hongkong appartment.jpg'],
+            Villa: ['/assests/hongkong villa 1.jpg'],
+            House: ['/assests/hongkong house 1.jpg']
+        }
+    };
+    const propertyNames = {
+        India: {
+            Apartment: ['The Imperial Residence', 'Skyline Oasis', 'Azure Heights'],
+            Villa: ['Serenity Retreat', 'The Grand Estate', 'Lotus Meadow'],
+            House: ['Heritage Manor', 'Crown Pavilion', 'Golden Crest']
+        },
+        Malaysia: {
+            Apartment: ['Twin Towers View', 'Sapphire Lofts'],
+            Villa: ['Jungle Canopy Villa', 'Orchid Sanctuary'],
+            House: ['Pearl Haven']
+        },
+        Singapore: {
+            Apartment: ['Marina Horizon', 'Orchard Suites'],
+            Villa: ['Sentosa Crest', 'Botanic Haven'],
+            House: ['Lion City Manor']
+        },
+        Dubai: {
+            Apartment: ['Burj Vista', 'Palm Horizon'],
+            Villa: ['Desert Rose Estate', 'Oasis Springs', 'Majestic Dunes'],
+            House: ['Dune Crest', 'Mirage Manor']
+        },
+        'Hong Kong': {
+            Apartment: ['Victoria Peak Suites'],
+            Villa: ['Dragon Ridge Retreat'],
+            House: ['Harbour View Manor']
+        }
+    };
+
     let idCounter = 0;
     const countryCounts = {
-        India: 12, Malaysia: 6, Singapore: 6, Dubai: 9, 'Hong Kong': 3
+        India: 9, Malaysia: 5, Singapore: 5, Dubai: 7, 'Hong Kong': 3
     };
-    const typesList = ['Villa', 'Apartment', 'Commercial', 'Layout'];
+    const typesList = ['Villa', 'Apartment', 'House'];
+
+    const usageCount = {
+        India: { Villa: 0, Apartment: 0, House: 0 },
+        Malaysia: { Villa: 0, Apartment: 0, House: 0 },
+        Singapore: { Villa: 0, Apartment: 0, House: 0 },
+        Dubai: { Villa: 0, Apartment: 0, House: 0 },
+        'Hong Kong': { Villa: 0, Apartment: 0, House: 0 }
+    };
 
     Object.entries(countryCounts).forEach(([country, targetCount]) => {
         for (let i = 0; i < targetCount; i += 1) {
             const type = typesList[i % typesList.length];
+
+            const typeAssets = assetMap[country][type];
+            const typeIndex = usageCount[country][type] % typeAssets.length;
+            const imgPath = typeAssets[typeIndex];
+
+            const typeNames = propertyNames[country][type];
+            const uniqueName = typeNames[typeIndex % typeNames.length];
+
+            usageCount[country][type]++;
+
             data.push({
                 id: idCounter + 1,
-                name: `${country} ${type} Prestige ${i + 1}`,
+                name: uniqueName,
                 location: `Prime Location, ${country}`,
                 category: country,
                 type,
-                price: type === 'Commercial' ? 'Corporate Asset' : 'Premium Pricing',
-                img: `https://images.unsplash.com/photo-${photoIds[idCounter % photoIds.length]}?auto=format&fit=crop&w=800&q=80`
+                price: type === 'House' ? 'Corporate Asset' : 'Premium Pricing',
+                img: imgPath
             });
             idCounter += 1;
         }
@@ -36,7 +106,7 @@ const allProperties = generateDummyData();
 
 const PropertyListings = () => {
     const categories = ['India', 'Malaysia', 'Singapore', 'Dubai', 'Hong Kong'];
-    const types = ['All', 'Villa', 'Apartment', 'Commercial', 'Layout'];
+    const types = ['All', 'Villa', 'Apartment', 'House'];
 
     const [activeCategory, setActiveCategory] = useState('India');
     const [activeType, setActiveType] = useState('All');
@@ -106,7 +176,7 @@ const PropertyListings = () => {
                 </div>
 
                 <div
-  className="property-grid"
+                    className="property-grid"
                     style={{
                         display: 'grid',
                         gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
