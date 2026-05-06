@@ -1,9 +1,16 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { FaPhoneAlt, FaWhatsapp } from 'react-icons/fa';
+import { useLocation } from 'react-router-dom';
 
 const ContactUs = () => {
     const [activeFaq, setActiveFaq] = useState(null);
+    const location = useLocation();
+    const propertyData = location.state;
     const web3FormsKey = import.meta.env.VITE_WEB3FORMS_KEY;
+
+    const defaultMessage = propertyData 
+        ? `I am interested in the property: ${propertyData.propertyName} located at ${propertyData.propertyLocation}. Please provide more details.`
+        : '';
 
     const faqs = [
         { q: 'How do I book a private consultation?', a: 'You can schedule a private consultation by filling out the form on this page or by directly contacting our Capital Management team via email at invest@monexagroups.com.' },
@@ -38,8 +45,20 @@ const ContactUs = () => {
 
                         <form action="https://api.web3forms.com/submit" method="POST" className="flex flex-col gap-6">
                             <input type="hidden" name="access_key" value={web3FormsKey || ''} />
-                            <input type="hidden" name="subject" value="Monexa Contact Inquiry" />
+                            <input type="hidden" name="subject" value={propertyData ? `Inquiry for ${propertyData.propertyName}` : "Monexa Contact Inquiry"} />
                             <input type="hidden" name="redirect" value={`${window.location.origin}/contact`} />
+                            
+                            {propertyData && (
+                                <div className="rounded-lg border border-[#C5A059]/30 bg-[#C5A059]/10 p-4 mb-2">
+                                    <p className="text-sm text-slate-800">
+                                        <span className="block text-xs font-bold uppercase tracking-wider text-[#C5A059]">Enquiring About</span>
+                                        <strong className="text-lg">{propertyData.propertyName}</strong>
+                                        <span className="block mt-1 text-slate-600">{propertyData.propertyLocation}</span>
+                                    </p>
+                                    <input type="hidden" name="Property Name" value={propertyData.propertyName} />
+                                    <input type="hidden" name="Property Location" value={propertyData.propertyLocation} />
+                                </div>
+                            )}
 
                             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                                 <div className="space-y-2">
@@ -96,6 +115,7 @@ const ContactUs = () => {
                                     id="message"
                                     name="message"
                                     rows={4}
+                                    defaultValue={defaultMessage}
                                     placeholder="Tell us about your project..."
                                     className="w-full resize-none rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-blue-500"
                                 />

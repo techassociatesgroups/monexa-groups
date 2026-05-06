@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -220,7 +220,7 @@ const Home = () => {
                         {[
                             ["Construction", "/images/construction.webp"],
                             ["Real Estate", "/images/monexa ventures 5.jpg"],
-                            ["Gated Community", "/images/monexa ventures 7.jpg"],
+                            ["Gated Community", "/images/gated community.jpg"],
                             ["Architecture", "/images/Architecture.webp"],
                             ["Interiors", "/images/interiors.webp"],
                             ["Builders", "/images/builders.webp"],
@@ -323,19 +323,16 @@ const Home = () => {
                             [
                                 "Monexa Business Park",
                                 "Singapore",
-                                "Commercial",
                                 "/images/monexa ventures 14.jpg",
                             ],
                             [
                                 "Sapphire Residency",
                                 "Trichy, India",
-                                "Villa",
                                 "/images/monexa ventures 15.jpg",
                             ],
                             [
                                 "Golden Enclave",
                                 "Dubai",
-                                "Upcoming",
                                 "/images/monexa ventures 16.jpg",
                             ],
                         ].map((item, i) => (
@@ -345,17 +342,13 @@ const Home = () => {
                                 className="overflow-hidden rounded-3xl bg-white shadow-lg transition hover:-translate-y-2"
                             >
                                 <img
-                                    src={item[3]}
+                                    src={item[2]}
                                     alt={item[0]}
                                     className="h-72 w-full object-cover"
                                 />
 
                                 <div className="p-6">
-                                    <span className="text-xs font-semibold uppercase tracking-[2px] text-[#C5A059]">
-                                        {item[2]}
-                                    </span>
-
-                                    <h3 className="mt-3 text-2xl font-semibold text-[#0F2A44]">
+                                    <h3 className="text-2xl font-semibold text-[#0F2A44]">
                                         {item[0]}
                                     </h3>
 
