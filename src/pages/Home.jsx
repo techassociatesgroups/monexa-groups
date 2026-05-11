@@ -20,19 +20,19 @@ const Home = () => {
             id: "01",
             title: "Great spaces for perfection and class",
             subtitle: "MONEXA HOUSING DEVELOPMENT",
-            video: "/video/hero video 1 monexa groups.mp4",
+            video: "/video/hero video1 monexa groups.webm",
         },
         {
             id: "02",
             title: "Future-Ready Global Infrastructure",
             subtitle: "INTERNATIONAL DEVELOPMENTS",
-            video: "/video/Monexa_Groups_hero_video1.mp4",
+            video: "/video/Monexa_Groups_hero_video1.webm",
         },
         {
             id: "03",
             title: "Architectural Excellence Worldwide",
             subtitle: "PREMIUM REAL ESTATE",
-            video: "/video/hero video 2 monexa groups.mp4",
+            video: "/video/hero video 2 monexa groups.webm",
         },
     ];
 
@@ -164,7 +164,7 @@ const Home = () => {
                             transform: "rotate(180deg)",
                         }}
                     >
-                       Enquire Now
+                        Enquire Now
                     </div>
                 </motion.a>
             </section>

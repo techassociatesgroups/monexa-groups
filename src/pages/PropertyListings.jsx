@@ -201,8 +201,8 @@ const PropertyListings = () => {
                                     <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0.5rem 0 1.5rem 0' }}>{property.name}</h3>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px solid #f1f5f9' }}>
                                         <span style={{ color: '#C5A059', fontWeight: 700 }}>{property.price}</span>
-                                        <Link 
-                                            to="/contact" 
+                                        <Link
+                                            to="/contact"
                                             state={{ propertyName: property.name, propertyLocation: property.location }}
                                             style={{ color: '#1e293b', fontWeight: 600, textDecoration: 'none', fontSize: '0.9rem' }}
                                         >
