@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
     FaArrowRight,
     FaChevronRight,
@@ -57,31 +57,44 @@ const Home = () => {
 
             {/* HERO */}
             <section className="relative h-screen overflow-hidden">
-                <AnimatePresence mode="wait">
-                    <motion.video
-                        key={currentSlide}
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        initial={{ opacity: 0, scale: 1.08 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 1 }}
-                        className="absolute inset-0 h-full w-full object-cover"
-                    >
-                        <source src={slides[currentSlide].video} type="video/mp4" />
-                    </motion.video>
-                </AnimatePresence>
 
+                {/* VIDEO BACKGROUND */}
+                <div className="absolute inset-0">
+
+                    {slides.map((slide, index) => (
+                        <video
+                            key={slide.id}
+                            autoPlay
+                            muted
+                            loop
+                            playsInline
+                            preload="auto"
+                            poster="/images/hero-poster.webp"
+                            className={`absolute will-change-opacity inset-0 h-full w-full object-cover transition-opacity duration-1000 ${currentSlide === index
+                                    ? "opacity-100"
+                                    : "opacity-0"
+                                }`}
+                        >
+                            <source
+                                src={slide.video}
+                                type="video/webm"
+                            />
+                        </video>
+                    ))}
+
+                </div>
+
+                {/* OVERLAY */}
                 <div className="absolute inset-0 bg-black/50" />
 
+                {/* CONTENT */}
                 <div className="relative z-10 mx-auto flex h-full max-w-7xl flex-col justify-center px-4 sm:px-6 lg:px-8 pt-24">
 
                     <motion.span
                         key={slides[currentSlide].subtitle}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
+                        transition={{ duration: 0.4 }}
                         className="mb-4 text-xs tracking-[4px] text-[#8B6B22]"
                     >
                         {slides[currentSlide].subtitle}
@@ -89,17 +102,20 @@ const Home = () => {
 
                     <motion.h1
                         key={slides[currentSlide].title}
-                        initial={{ opacity: 0, y: 25 }}
+                        initial={{ opacity: 0, y: 12 }}
                         animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
                         className="max-w-4xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl"
                     >
                         {slides[currentSlide].title}
+
                         <span className="block font-light text-white/90">
                             at best prices.
                         </span>
                     </motion.h1>
 
                     <div className="mt-8 flex flex-wrap gap-4">
+
                         <Link
                             to="/India"
                             className="inline-flex items-center gap-3 rounded-full bg-[#8B6B22] px-8 py-4 font-semibold text-white transition hover:bg-[#b89249]"
@@ -116,15 +132,17 @@ const Home = () => {
                         </a>
                     </div>
 
-                    {/* Bottom Nav */}
+                    {/* NAVIGATION */}
                     <div className="mt-10 flex flex-wrap items-center gap-4 text-white">
+
                         {slides.map((item, idx) => (
                             <button
                                 key={item.id}
                                 onClick={() => setCurrentSlide(idx)}
-                                className={`text-sm font-semibold ${currentSlide === idx
+                                aria-label={`Go to slide ${item.id}`}
+                                className={`text-sm font-semibold transition ${currentSlide === idx
                                     ? "border-b-2 border-white"
-                                    : "opacity-40"
+                                    : "opacity-40 hover:opacity-100"
                                     }`}
                             >
                                 {item.id}
@@ -133,14 +151,15 @@ const Home = () => {
 
                         <button
                             onClick={nextSlide}
+                            aria-label="Next Slide"
                             className="ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-white"
-                         aria-label="Next Slide">
+                        >
                             <FaArrowRight size={12} />
                         </button>
                     </div>
                 </div>
 
-                {/* Floating Enquiry */}
+                {/* FLOATING ENQUIRY */}
                 <motion.a
                     href="https://wa.me/916385303666?text=Hey%20I%20want%20to%20know%20more%20about%20Monexa%20Groups%20and%20its%20services."
                     target="_blank"
@@ -231,10 +250,12 @@ const Home = () => {
                                 className="group relative overflow-hidden rounded-3xl bg-white shadow-lg"
                             >
                                 <img
+                                    width="800"
+                                    height="600"
                                     src={item[1]}
                                     alt={item[0]}
                                     className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
-                                loading="lazy" />
+                                    loading="lazy" decoding="async" />
 
                                 <div className="absolute inset-0 bg-black/30" />
 
@@ -275,8 +296,10 @@ const Home = () => {
                                 <img
                                     src={item[2]}
                                     alt={item[1]}
+                                    width="800"
+                                    height="600"
                                     className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0"
-                                loading="lazy" />
+                                    loading="lazy" decoding="async" />
 
                                 <div className="absolute inset-0 bg-black/55" />
 
@@ -345,7 +368,9 @@ const Home = () => {
                                     src={item[2]}
                                     alt={item[0]}
                                     className="h-72 w-full object-cover"
-                                loading="lazy" />
+                                    width="800"
+                                    height="600"
+                                    loading="lazy" decoding="async" />
 
                                 <div className="p-6">
                                     <h3 className="text-2xl font-semibold text-[#0F2A44]">
@@ -393,8 +418,10 @@ const Home = () => {
                         <img
                             src="/images/monexa ventures 13.webp"
                             alt="Investor Relations"
+                            width="800"
+                            height="600"
                             className="h-[420px] w-full rounded-3xl object-cover shadow-2xl"
-                        loading="lazy" />
+                            loading="lazy" decoding="async" />
                     </div>
                 </div>
             </section>
@@ -407,15 +434,7 @@ const Home = () => {
                     </h2>
 
                     <div className="mt-14 overflow-hidden">
-                        <motion.div
-                            animate={{ x: ["0%", "-50%"] }}
-                            transition={{
-                                duration: 28,
-                                repeat: Infinity,
-                                ease: "linear",
-                            }}
-                            className="flex w-max gap-6"
-                        >
+                        <div className="testimonial-marquee flex w-max gap-6">
                             {[
                                 {
                                     name: "Sarah Jenkins",
@@ -480,7 +499,7 @@ const Home = () => {
                                     </div>
                                 </div>
                             ))}
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -515,10 +534,12 @@ const Home = () => {
                     {/* RIGHT IMAGE */}
                     <div className="h-[320px] sm:h-[420px] lg:h-full">
                         <img
+                            width="800"
+                            height="600"
                             src="/images/monexa ventures 15.webp"
                             alt="EMI Calculator"
                             className="h-full w-full object-cover"
-                        loading="lazy" />
+                            loading="lazy" decoding="async" />
                     </div>
 
                 </div>

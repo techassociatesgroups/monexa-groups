@@ -157,11 +157,10 @@ const Services = () => {
                 key={item.name}
                 onClick={() => setSelectedService(item.name)}
                 className={`flex items-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition-all
-                ${
-                  selectedService === item.name
+                ${selectedService === item.name
                     ? "bg-[#0F2A44] text-white shadow-lg"
                     : "glass-card text-slate-700"
-                }`}
+                  }`}
               >
                 {item.icon}
                 {item.name}
@@ -211,8 +210,12 @@ const Services = () => {
                 <img
                   src={active.img}
                   alt={active.name}
+                  width="1200"
+                  height="800"
                   className="h-full w-full object-cover"
-                loading="lazy" />
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </motion.div>
           </AnimatePresence>

@@ -70,7 +70,7 @@ const Header = () => {
                             src="/images/monexa groups logo.webp"
                             alt="Monexa Groups Logo"
                             className="h-18 sm:h-22 lg:h-26 w-auto object-contain"
-                        loading="eager" width="160" height="50" />
+                        loading="eager"  decoding="async" width="160" height="50" />
                     </Link>
 
 

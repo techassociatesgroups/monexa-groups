@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -194,7 +194,19 @@ const PropertyListings = () => {
                                 style={{ backgroundColor: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                             >
                                 <div style={{ height: '240px', overflow: 'hidden' }}>
-                                    <img src={property.img} alt={property.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                                    <img
+                                        src={property.img}
+                                        alt={property.name}
+                                        width="800"
+                                        height="600"
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover'
+                                        }}
+                                        loading="lazy"
+                                        decoding="async"
+                                    />
                                 </div>
                                 <div style={{ padding: '1.5rem' }}>
                                     <span style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase' }}>{property.location}</span>

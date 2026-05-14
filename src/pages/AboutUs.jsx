@@ -127,8 +127,11 @@ const AboutUs = () => {
                     <img
                         src="/images/monexa ventures 2.webp"
                         alt="Monexa"
+                         width="800"
+                         height="600"
                         className="h-[320px] w-full rounded-2xl object-cover sm:h-[420px]"
-                    loading="lazy" />
+                    loading="lazy"  decoding="async" />
+                   
 
                     <div>
                         <h2 className="text-3xl font-bold text-[#0F2A44] sm:text-4xl">
