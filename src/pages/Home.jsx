@@ -82,7 +82,7 @@ const Home = () => {
                         key={slides[currentSlide].subtitle}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="mb-4 text-xs tracking-[4px] text-[#C5A059]"
+                        className="mb-4 text-xs tracking-[4px] text-[#8B6B22]"
                     >
                         {slides[currentSlide].subtitle}
                     </motion.span>
@@ -102,7 +102,7 @@ const Home = () => {
                     <div className="mt-8 flex flex-wrap gap-4">
                         <Link
                             to="/India"
-                            className="inline-flex items-center gap-3 rounded-full bg-[#C5A059] px-8 py-4 font-semibold text-white transition hover:bg-[#b89249]"
+                            className="inline-flex items-center gap-3 rounded-full bg-[#8B6B22] px-8 py-4 font-semibold text-white transition hover:bg-[#b89249]"
                         >
                             VIEW PROPERTIES <FaChevronRight size={12} />
                         </Link>
@@ -134,7 +134,7 @@ const Home = () => {
                         <button
                             onClick={nextSlide}
                             className="ml-2 flex h-10 w-10 items-center justify-center rounded-full border border-white"
-                        >
+                         aria-label="Next Slide">
                             <FaArrowRight size={12} />
                         </button>
                     </div>
@@ -158,7 +158,7 @@ const Home = () => {
                     className="fixed right-0 top-1/2 z-50 -translate-y-1/2"
                 >
                     <div
-                        className="flex h-[210px] w-[58px] items-center justify-center bg-[#C5A059] text-xs font-bold tracking-[3px] text-white shadow-2xl"
+                        className="flex h-[210px] w-[58px] items-center justify-center bg-[#8B6B22] text-xs font-bold tracking-[3px] text-white shadow-2xl"
                         style={{
                             writingMode: "vertical-rl",
                             transform: "rotate(180deg)",
@@ -205,7 +205,7 @@ const Home = () => {
             <section className="bg-slate-50 px-4 py-20 sm:px-6 lg:px-8">
                 <div className="mx-auto max-w-7xl">
                     <div className="text-center">
-                        <span className="rounded-full border border-[#C5A059]/40 px-5 py-2 text-xs tracking-[3px] text-[#C5A059]">
+                        <span className="rounded-full border border-[#8B6B22]/40 px-5 py-2 text-xs tracking-[3px] text-[#8B6B22]">
                             WHAT WE OFFER
                         </span>
 
@@ -219,8 +219,8 @@ const Home = () => {
                     <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                         {[
                             ["Construction", "/images/construction.webp"],
-                            ["Real Estate", "/images/monexa ventures 5.jpg"],
-                            ["Gated Community", "/images/gated community.jpg"],
+                            ["Real Estate", "/images/monexa ventures 5.webp"],
+                            ["Gated Community", "/images/gated community.webp"],
                             ["Architecture", "/images/Architecture.webp"],
                             ["Interiors", "/images/interiors.webp"],
                             ["Builders", "/images/builders.webp"],
@@ -234,7 +234,7 @@ const Home = () => {
                                     src={item[1]}
                                     alt={item[0]}
                                     className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
-                                />
+                                loading="lazy" />
 
                                 <div className="absolute inset-0 bg-black/30" />
 
@@ -262,11 +262,11 @@ const Home = () => {
 
                     <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
                         {[
-                            ["IN", "India", "/images/monexa ventures 7.jpg"],
-                            ["MY", "Malaysia", "/images/monexa ventures 8.jpg"],
-                            ["SG", "Singapore", "/images/monexa ventures 10.jpg"],
-                            ["AE", "Dubai", "/images/monexa ventures 11.jpg"],
-                            ["HK", "Hong Kong", "/images/monexa ventures 12.jpg"],
+                            ["IN", "India", "/images/monexa ventures 7.webp"],
+                            ["MY", "Malaysia", "/images/monexa ventures 8.webp"],
+                            ["SG", "Singapore", "/images/monexa ventures 10.webp"],
+                            ["AE", "Dubai", "/images/monexa ventures 11.webp"],
+                            ["HK", "Hong Kong", "/images/monexa ventures 12.webp"],
                         ].map((item, i) => (
                             <div
                                 key={i}
@@ -276,7 +276,7 @@ const Home = () => {
                                     src={item[2]}
                                     alt={item[1]}
                                     className="h-full w-full object-cover grayscale transition duration-500 group-hover:grayscale-0"
-                                />
+                                loading="lazy" />
 
                                 <div className="absolute inset-0 bg-black/55" />
 
@@ -301,7 +301,7 @@ const Home = () => {
 
                     <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                         <div>
-                            <span className="text-xs tracking-[3px] text-[#C5A059]">
+                            <span className="text-xs tracking-[3px] text-[#8B6B22]">
                                 GLOBAL PORTFOLIO
                             </span>
 
@@ -323,17 +323,17 @@ const Home = () => {
                             [
                                 "Monexa Business Park",
                                 "Singapore",
-                                "/images/monexa ventures 14.jpg",
+                                "/images/monexa ventures 14.webp",
                             ],
                             [
                                 "Sapphire Residency",
                                 "Trichy, India",
-                                "/images/monexa ventures 15.jpg",
+                                "/images/monexa ventures 15.webp",
                             ],
                             [
                                 "Golden Enclave",
                                 "Dubai",
-                                "/images/monexa ventures 16.jpg",
+                                "/images/monexa ventures 16.webp",
                             ],
                         ].map((item, i) => (
                             <Link
@@ -345,7 +345,7 @@ const Home = () => {
                                     src={item[2]}
                                     alt={item[0]}
                                     className="h-72 w-full object-cover"
-                                />
+                                loading="lazy" />
 
                                 <div className="p-6">
                                     <h3 className="text-2xl font-semibold text-[#0F2A44]">
@@ -391,10 +391,10 @@ const Home = () => {
 
                     <div>
                         <img
-                            src="/images/monexa ventures 13.jpg"
+                            src="/images/monexa ventures 13.webp"
                             alt="Investor Relations"
                             className="h-[420px] w-full rounded-3xl object-cover shadow-2xl"
-                        />
+                        loading="lazy" />
                     </div>
                 </div>
             </section>
@@ -457,7 +457,7 @@ const Home = () => {
                                     key={i}
                                     className="w-[320px] shrink-0 rounded-3xl bg-slate-50 p-8 text-left shadow-lg"
                                 >
-                                    <div className="mb-4 flex gap-1 text-[#C5A059]">
+                                    <div className="mb-4 flex gap-1 text-[#8B6B22]">
                                         <FaStar />
                                         <FaStar />
                                         <FaStar />
@@ -470,9 +470,9 @@ const Home = () => {
                                     </p>
 
                                     <div className="mt-6">
-                                        <h4 className="font-semibold text-[#0F2A44]">
+                                        <h3 className="text-xl font-semibold text-[#0F2A44]">
                                             {item.name}
-                                        </h4>
+                                        </h3>
 
                                         <p className="text-sm text-slate-500">
                                             {item.role}
@@ -491,7 +491,7 @@ const Home = () => {
 
                     {/* LEFT CONTENT */}
                     <div className="flex flex-col justify-center p-8 sm:p-10 lg:p-14">
-                        <span className="text-xs tracking-[3px] text-[#C5A059]">
+                        <span className="text-xs tracking-[3px] text-[#8B6B22]">
                             EMI CALCULATOR
                         </span>
 
@@ -515,10 +515,10 @@ const Home = () => {
                     {/* RIGHT IMAGE */}
                     <div className="h-[320px] sm:h-[420px] lg:h-full">
                         <img
-                            src="/images/monexa ventures 15.jpg"
+                            src="/images/monexa ventures 15.webp"
                             alt="EMI Calculator"
                             className="h-full w-full object-cover"
-                        />
+                        loading="lazy" />
                     </div>
 
                 </div>

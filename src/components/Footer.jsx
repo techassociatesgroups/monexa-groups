@@ -12,7 +12,7 @@ const Footer = () => {
         <div
           className="absolute inset-0 bg-cover bg-center brightness-[0.35]"
           style={{
-            backgroundImage: 'url("/images/monexa ventures 1.jpg")',
+            backgroundImage: 'url("/images/monexa ventures 1.webp")',
           }}
         />
 
@@ -45,7 +45,7 @@ const Footer = () => {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.06 }}
-            className="mx-auto mt-10 flex h-28 w-28 items-center justify-center rounded-full bg-[#C5A059] text-center text-sm font-semibold text-white shadow-2xl sm:h-36 sm:w-36"
+            className="mx-auto mt-10 flex h-28 w-28 items-center justify-center rounded-full bg-[#8B6B22] text-center text-sm font-semibold text-white shadow-2xl sm:h-36 sm:w-36"
           >
             Connect
             <br />
@@ -65,7 +65,7 @@ const Footer = () => {
               <Link to="/">
                 <h2 className="text-3xl font-bold text-[#0F2A44]">
                   MONEXA
-                  <span className="ml-1 text-[#C5A059]">groups</span>
+                  <span className="ml-1 text-[#8B6B22]">groups</span>
                 </h2>
               </Link>
 
@@ -76,35 +76,35 @@ const Footer = () => {
 
             {/* Company */}
             <div>
-              <h4 className="mb-5 text-sm font-bold uppercase tracking-[3px] text-[#C5A059]">
+              <h4 className="mb-5 text-sm font-bold uppercase tracking-[3px] text-[#8B6B22]">
                 Company
               </h4>
 
               <div className="space-y-3 text-slate-600">
-                <Link to="/about" className="block hover:text-[#C5A059]">About</Link>
-                <Link to="/services" className="block hover:text-[#C5A059]">Services</Link>
-                <Link to="/invest" className="block hover:text-[#C5A059]">Investor</Link>
-                <Link to="/contact" className="block hover:text-[#C5A059]">Contact</Link>
+                <Link to="/about" className="block hover:text-[#8B6B22]">About</Link>
+                <Link to="/services" className="block hover:text-[#8B6B22]">Services</Link>
+                <Link to="/invest" className="block hover:text-[#8B6B22]">Investor</Link>
+                <Link to="/contact" className="block hover:text-[#8B6B22]">Contact</Link>
               </div>
             </div>
 
             {/* Projects */}
             <div>
-              <h4 className="mb-5 text-sm font-bold uppercase tracking-[3px] text-[#C5A059]">
+              <h4 className="mb-5 text-sm font-bold uppercase tracking-[3px] text-[#8B6B22]">
                 Projects
               </h4>
 
               <div className="space-y-3 text-slate-600">
-                <Link to="/India" className="block hover:text-[#C5A059]">India</Link>
-                <Link to="/Malaysia" className="block hover:text-[#C5A059]">Malaysia</Link>
-                <Link to="/commercial" className="block hover:text-[#C5A059]">Dubai</Link>
-                <Link to="/upcoming" className="block hover:text-[#C5A059]">Singapore</Link>
+                <Link to="/India" className="block hover:text-[#8B6B22]">India</Link>
+                <Link to="/Malaysia" className="block hover:text-[#8B6B22]">Malaysia</Link>
+                <Link to="/commercial" className="block hover:text-[#8B6B22]">Dubai</Link>
+                <Link to="/upcoming" className="block hover:text-[#8B6B22]">Singapore</Link>
               </div>
             </div>
 
             {/* Contact */}
             <div>
-              <h4 className="mb-5 text-sm font-bold uppercase tracking-[3px] text-[#C5A059]">
+              <h4 className="mb-5 text-sm font-bold uppercase tracking-[3px] text-[#8B6B22]">
                 Contact
               </h4>
 

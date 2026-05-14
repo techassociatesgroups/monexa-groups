@@ -44,7 +44,7 @@ const Services = () => {
         "Timely Delivery",
         "Green Building",
       ],
-      img: "/images/monexa ventures 14.jpg",
+      img: "/images/monexa ventures 14.webp",
     },
     {
       name: "Real Estate",
@@ -56,7 +56,7 @@ const Services = () => {
         "Property Management",
         "Legal Support",
       ],
-      img: "/images/monexa ventures 15.jpg",
+      img: "/images/monexa ventures 15.webp",
     },
     {
       name: "Gated Community",
@@ -68,7 +68,7 @@ const Services = () => {
         "Gardens",
         "Community Living",
       ],
-      img: "/images/monexa ventures 16.jpg",
+      img: "/images/monexa ventures 16.webp",
     },
     {
       name: "Architecture",
@@ -80,7 +80,7 @@ const Services = () => {
         "Sustainable Design",
         "3D Visualization",
       ],
-      img: "/images/monexa ventures 17.jpg",
+      img: "/images/monexa ventures 17.webp",
     },
     {
       name: "Interiors",
@@ -92,7 +92,7 @@ const Services = () => {
         "Lighting Design",
         "Material Selection",
       ],
-      img: "/images/monexa ventures 18.jpg",
+      img: "/images/monexa ventures 18.webp",
     },
     {
       name: "Builders",
@@ -104,7 +104,7 @@ const Services = () => {
         "Safety Standards",
         "Project Management",
       ],
-      img: "/images/monexa ventures 1.jpg",
+      img: "/images/monexa ventures 1.webp",
     },
   ];
 
@@ -212,7 +212,7 @@ const Services = () => {
                   src={active.img}
                   alt={active.name}
                   className="h-full w-full object-cover"
-                />
+                loading="lazy" />
               </div>
             </motion.div>
           </AnimatePresence>

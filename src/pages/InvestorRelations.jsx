@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { ShieldCheck, TrendingUp, Clock, FileText, CheckCircle, AlertTriangle } from 'lucide-react';
 
@@ -173,18 +173,6 @@ const Investor = () => {
                 </div>
             </section>
 
-            {/* Risk Disclosure */}
-            <section className="bg-red-50 py-12 px-4 md:px-8">
-                <div className="max-w-4xl mx-auto flex items-start">
-                    <AlertTriangle className="text-red-600 mr-4 flex-shrink-0 mt-1" size={28} />
-                    <div>
-                        <h3 className="text-xl font-bold text-red-800 mb-2">Risk Disclosure</h3>
-                        <p className="text-red-700">
-                            All investments are subject to market risks. Returns are based on project performance and are not guaranteed. Investors are advised to review all documents carefully before investing.
-                        </p>
-                    </div>
-                </div>
-            </section>
 
             {/* CTA */}
             <section className="bg-[#0F2A44] text-white py-16 px-4 text-center">

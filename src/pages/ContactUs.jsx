@@ -49,9 +49,9 @@ const ContactUs = () => {
                             <input type="hidden" name="redirect" value={`${window.location.origin}/contact`} />
                             
                             {propertyData && (
-                                <div className="rounded-lg border border-[#C5A059]/30 bg-[#C5A059]/10 p-4 mb-2">
+                                <div className="rounded-lg border border-[#8B6B22]/30 bg-[#8B6B22]/10 p-4 mb-2">
                                     <p className="text-sm text-slate-800">
-                                        <span className="block text-xs font-bold uppercase tracking-wider text-[#C5A059]">Enquiring About</span>
+                                        <span className="block text-xs font-bold uppercase tracking-wider text-[#8B6B22]">Enquiring About</span>
                                         <strong className="text-lg">{propertyData.propertyName}</strong>
                                         <span className="block mt-1 text-slate-600">{propertyData.propertyLocation}</span>
                                     </p>

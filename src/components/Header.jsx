@@ -34,15 +34,15 @@ const Header = () => {
     const getDesktopLinkClass = (path) => {
         const isActive = location.pathname === path;
 
-        return `no-underline text-sm font-semibold uppercase tracking-[0.18em] transition-colors duration-300 hover:text-[#C5A059] ${isSolid ? 'text-slate-800' : 'text-white'
-            } ${isActive ? 'text-[#C5A059]' : ''}`;
+        return `no-underline text-sm font-semibold uppercase tracking-[0.18em] transition-colors duration-300 hover:text-[#8B6B22] ${isSolid ? 'text-slate-800' : 'text-white'
+            } ${isActive ? 'text-[#8B6B22]' : ''}`;
     };
 
     const getMobileLinkClass = (path) => {
         const isActive = location.pathname === path;
 
         return `block rounded-2xl px-4 py-3 text-sm font-semibold uppercase tracking-[0.16em] transition-colors duration-300 ${isActive
-                ? 'bg-[#C5A059] text-white'
+                ? 'bg-[#8B6B22] text-white'
                 : 'text-slate-800 hover:bg-slate-100'
             }`;
     };
@@ -67,10 +67,10 @@ const Header = () => {
                         aria-label="Monexa groups home"
                     >
                         <img
-                            src="/images/monexa groups logo.png"
+                            src="/images/monexa groups logo.webp"
                             alt="Monexa Groups Logo"
                             className="h-18 sm:h-22 lg:h-26 w-auto object-contain"
-                        />
+                        loading="eager" width="160" height="50" />
                     </Link>
 
 
@@ -92,7 +92,7 @@ const Header = () => {
                     <div className="flex shrink-0 items-center justify-end gap-3">
                         <Link
                             to="/contact"
-                            className="hidden lg:inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#C5A059] px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white no-underline transition-colors duration-300 hover:bg-slate-900"
+                            className="hidden lg:inline-flex items-center justify-center whitespace-nowrap rounded-full bg-[#8B6B22] px-8 py-4 text-sm font-bold uppercase tracking-[0.18em] text-white no-underline transition-colors duration-300 hover:bg-slate-900"
                         >
                             Contact
                         </Link>
@@ -137,7 +137,7 @@ const Header = () => {
 
                                 <Link
                                     to="/contact"
-                                    className="mt-2 inline-flex items-center justify-center rounded-2xl bg-[#C5A059] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white no-underline transition-colors duration-300 hover:bg-slate-900"
+                                    className="mt-2 inline-flex items-center justify-center rounded-2xl bg-[#8B6B22] px-6 py-3.5 text-sm font-bold uppercase tracking-[0.16em] text-white no-underline transition-colors duration-300 hover:bg-slate-900"
                                 >
                                     Contact
                                 </Link>

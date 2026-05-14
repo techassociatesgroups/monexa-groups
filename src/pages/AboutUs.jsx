@@ -125,10 +125,10 @@ const AboutUs = () => {
             <section className="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
                 <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center">
                     <img
-                        src="/images/monexa ventures 2.jpg"
+                        src="/images/monexa ventures 2.webp"
                         alt="Monexa"
                         className="h-[320px] w-full rounded-2xl object-cover sm:h-[420px]"
-                    />
+                    loading="lazy" />
 
                     <div>
                         <h2 className="text-3xl font-bold text-[#0F2A44] sm:text-4xl">
@@ -142,18 +142,18 @@ const AboutUs = () => {
 
                         <div className="mt-8 grid gap-6 sm:grid-cols-2">
                             <div className="rounded-xl bg-white p-5 shadow-sm">
-                                <h4 className="font-semibold text-[#0F2A44]">
+                                <h3 className="text-xl font-semibold text-[#0F2A44]">
                                     01. Structural Grace
-                                </h4>
+                                </h3>
                                 <p className="mt-2 text-sm text-slate-600">
                                     Architectural excellence without compromise.
                                 </p>
                             </div>
 
                             <div className="rounded-xl bg-white p-5 shadow-sm">
-                                <h4 className="font-semibold text-[#0F2A44]">
+                                <h3 className="text-xl font-semibold text-[#0F2A44]">
                                     02. Ethical Foundation
-                                </h4>
+                                </h3>
                                 <p className="mt-2 text-sm text-slate-600">
                                     Transparent governance in every contract.
                                 </p>

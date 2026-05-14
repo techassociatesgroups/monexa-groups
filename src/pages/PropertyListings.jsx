@@ -7,29 +7,29 @@ const generateDummyData = () => {
     const data = [];
     const assetMap = {
         India: {
-            Apartment: ['/assests/indian appartment 1.png', '/assests/indian appartment 2.jpg', '/assests/indian appartment 3.png'],
-            Villa: ['/assests/indian villa 1.png', '/assests/indian villa 2.jpg', '/assests/indian villa 4.jpg'],
-            House: ['/assests/indian house 1.png', '/assests/indian house 2.jpg', '/assests/indian house 3.png']
+            Apartment: ['/assests/indian appartment 1.webp', '/assests/indian appartment 2.webp', '/assests/indian appartment 3.webp'],
+            Villa: ['/assests/indian villa 1.webp', '/assests/indian villa 2.webp', '/assests/indian villa 4.webp'],
+            House: ['/assests/indian house 1.webp', '/assests/indian house 2.webp', '/assests/indian house 3.webp']
         },
         Malaysia: {
-            Apartment: ['/assests/malaysia appartment 1.jpg', '/assests/malaysia appartment 2.jpg'],
-            Villa: ['/assests/malaysia villa 1.jpg', '/assests/malaysia villa 2.jpg'],
-            House: ['/assests/malaysia house 1.jpg']
+            Apartment: ['/assests/malaysia appartment 1.webp', '/assests/malaysia appartment 2.webp'],
+            Villa: ['/assests/malaysia villa 1.webp', '/assests/malaysia villa 2.webp'],
+            House: ['/assests/malaysia house 1.webp']
         },
         Singapore: {
-            Apartment: ['/assests/singapore appartmet 1.jpg', '/assests/singapore appartment 2.jpg'],
-            Villa: ['/assests/singapore villa 1.jpg', '/assests/singapore villa 2.jpg'],
-            House: ['/assests/singapore house 2.jpg']
+            Apartment: ['/assests/singapore appartmet 1.webp', '/assests/singapore appartment 2.webp'],
+            Villa: ['/assests/singapore villa 1.webp', '/assests/singapore villa 2.webp'],
+            House: ['/assests/singapore house 2.webp']
         },
         Dubai: {
-            Apartment: ['/assests/dubai appartment 1.jpg', '/assests/dubai appartment 2.jpg'],
-            Villa: ['/assests/dubai villa 1.jpg', '/assests/dubai villa 2.jpg', '/assests/dubai villa 3.jpg'],
-            House: ['/assests/dubai house 1.jpg', '/assests/dubai house 2.jpg']
+            Apartment: ['/assests/dubai appartment 1.webp', '/assests/dubai appartment 2.webp'],
+            Villa: ['/assests/dubai villa 1.webp', '/assests/dubai villa 2.webp', '/assests/dubai villa 3.webp'],
+            House: ['/assests/dubai house 1.webp', '/assests/dubai house 2.webp']
         },
         'Hong Kong': {
-            Apartment: ['/assests/hongkong appartment.jpg'],
-            Villa: ['/assests/hongkong villa 1.jpg'],
-            House: ['/assests/hongkong house 1.jpg']
+            Apartment: ['/assests/hongkong appartment.webp'],
+            Villa: ['/assests/hongkong villa 1.webp'],
+            House: ['/assests/hongkong house 1.webp']
         }
     };
     const propertyNames = {
@@ -137,8 +137,8 @@ const PropertyListings = () => {
                             style={{
                                 padding: '0.7rem 1.8rem',
                                 borderRadius: '50px',
-                                border: `1px solid ${activeCategory === category ? '#C5A059' : '#e2e8f0'}`,
-                                backgroundColor: activeCategory === category ? '#C5A059' : 'white',
+                                border: `1px solid ${activeCategory === category ? '#8B6B22' : '#e2e8f0'}`,
+                                backgroundColor: activeCategory === category ? '#8B6B22' : 'white',
                                 color: activeCategory === category ? 'white' : '#64748b',
                                 whiteSpace: 'nowrap',
                                 cursor: 'pointer',
@@ -169,7 +169,7 @@ const PropertyListings = () => {
                         >
                             {type}
                             {activeType === type ? (
-                                <motion.div layoutId="underline" style={{ position: 'absolute', bottom: '-1.1rem', left: 0, right: 0, height: '3px', background: '#C5A059' }} />
+                                <motion.div layoutId="underline" style={{ position: 'absolute', bottom: '-1.1rem', left: 0, right: 0, height: '3px', background: '#8B6B22' }} />
                             ) : null}
                         </button>
                     ))}
@@ -194,13 +194,13 @@ const PropertyListings = () => {
                                 style={{ backgroundColor: 'white', borderRadius: '12px', overflow: 'hidden', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
                             >
                                 <div style={{ height: '240px', overflow: 'hidden' }}>
-                                    <img src={property.img} alt={property.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                    <img src={property.img} alt={property.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
                                 </div>
                                 <div style={{ padding: '1.5rem' }}>
                                     <span style={{ fontSize: '0.75rem', color: '#64748b', textTransform: 'uppercase' }}>{property.location}</span>
                                     <h3 style={{ fontSize: '1.25rem', fontWeight: 600, margin: '0.5rem 0 1.5rem 0' }}>{property.name}</h3>
                                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1rem', borderTop: '1px solid #f1f5f9' }}>
-                                        <span style={{ color: '#C5A059', fontWeight: 700 }}>{property.price}</span>
+                                        <span style={{ color: '#8B6B22', fontWeight: 700 }}>{property.price}</span>
                                         <Link
                                             to="/contact"
                                             state={{ propertyName: property.name, propertyLocation: property.location }}

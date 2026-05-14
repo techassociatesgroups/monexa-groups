@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://monexagroups.in/</loc>
-    <priority>1.00</priority>
-  </url>
-
-  <url>
-    <loc>https://monexagroups.in/about</loc>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://monexagroups.in/contact</loc>
-    <priority>0.80</priority>
-  </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://monexagroups.in/</loc><priority>1.00</priority></url>
+  <url><loc>https://monexagroups.in/about</loc><priority>0.80</priority></url>
+  <url><loc>https://monexagroups.in/services</loc><priority>0.80</priority></url>
+  <url><loc>https://monexagroups.in/India</loc><priority>0.80</priority></url>
+  <url><loc>https://monexagroups.in/Malaysia</loc><priority>0.80</priority></url>
+  <url><loc>https://monexagroups.in/commercial</loc><priority>0.80</priority></url>
+  <url><loc>https://monexagroups.in/upcoming</loc><priority>0.80</priority></url>
+  <url><loc>https://monexagroups.in/invest</loc><priority>0.80</priority></url>
+  <url><loc>https://monexagroups.in/emi-calculator</loc><priority>0.80</priority></url>
+  <url><loc>https://monexagroups.in/contact</loc><priority>0.80</priority></url>
 </urlset>
